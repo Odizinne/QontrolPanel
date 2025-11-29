@@ -115,14 +115,6 @@
         <source>Battery</source>
         <translation>Batteria</translation>
     </message>
-    <message>
-        <source>Avoid applications overflow</source>
-        <translation type="vanished">Evita sovrapposizione applicazioni</translation>
-    </message>
-    <message>
-        <source>Wrap applications in ScrollView when more than 4 applications are displayed</source>
-        <translation type="vanished">In Vista scorrimento a capo automatico applicazioni quando vengono visualizzate più di 4 applicazioni</translation>
-    </message>
 </context>
 <context>
     <name>ApplicationsListView</name>
@@ -363,11 +355,11 @@
     </message>
     <message>
         <source>Restart to UEFI</source>
-        <translation type="unfinished"></translation>
+        <translation>Riavvia in UEFI</translation>
     </message>
     <message>
         <source>System will restart to UEFI in %1 seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Il sistema verrà riavviato in UEFI tra %1 secondi</translation>
     </message>
     <message>
         <source>OK</source>
@@ -584,14 +576,6 @@ Se vuoi supportare il mio lavoro, qualsiasi contributo sarebbe molto apprezzato!
         <translation>Impostazioni generali</translation>
     </message>
     <message>
-        <source>Sound keepalive</source>
-        <translation type="vanished">Mantieni attivo suono</translation>
-    </message>
-    <message>
-        <source>Emit an inaudible sound to keep bluetooth devices awake</source>
-        <translation type="vanished">Emetti audio non udibile per mantenere attivo il Bluetooth</translation>
-    </message>
-    <message>
         <source>Run at system startup</source>
         <translation>Esegui ad avvio del sistema</translation>
     </message>
@@ -743,7 +727,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Unknow date</source>
-        <translation>23.11.2025</translation>
+        <translation>29.11.2025</translation>
     </message>
     <message>
         <source>Update Translations</source>
@@ -847,7 +831,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Restart UEFI</source>
-        <translation type="unfinished"></translation>
+        <translation>Riavvia in UEFI</translation>
     </message>
     <message>
         <source>Shutdown</source>
@@ -1015,10 +999,6 @@ Puoi abilitarlo nella scheda Generale.</translation>
     <message>
         <source>Exit</source>
         <translation>Esci da QuickSoundSwitcher</translation>
-    </message>
-    <message>
-        <source></source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Windows sound settings (Legacy)</source>
