@@ -355,11 +355,11 @@
     </message>
     <message>
         <source>Restart to UEFI</source>
-        <translation>Riavvia in UEFI</translation>
+        <translation>Riavvia iN UEFI</translation>
     </message>
     <message>
         <source>System will restart to UEFI in %1 seconds</source>
-        <translation>Il sistema verrà riavviato in UEFI tra %1 secondi</translation>
+        <translation>Il sistema si riavvierà in UEFI tra %1 secondi</translation>
     </message>
     <message>
         <source>OK</source>
@@ -727,7 +727,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Unknow date</source>
-        <translation>29.11.2025</translation>
+        <translation>23.11.2025</translation>
     </message>
     <message>
         <source>Update Translations</source>
@@ -972,21 +972,6 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
 </context>
 <context>
-    <name>SoundPanelBridge</name>
-    <message>
-        <source>No translation files to download</source>
-        <translation type="vanished">Nessun file traduzione da scaricare</translation>
-    </message>
-    <message>
-        <source>All translations downloaded successfully</source>
-        <translation type="vanished">Tutte le traduzioni sono state scaricate correttamente</translation>
-    </message>
-    <message>
-        <source>Downloaded %1 of %2 translation files</source>
-        <translation type="vanished">Scaricati %1 di %2 file traduzioni</translation>
-    </message>
-</context>
-<context>
     <name>SystemTray</name>
     <message>
         <source>Output: </source>
@@ -1029,15 +1014,15 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>No translation files to download</source>
-        <translation type="unfinished">Nessun file traduzione da scaricare</translation>
+        <translation>Nessun file traduzione da scaricare</translation>
     </message>
     <message>
         <source>All translations downloaded successfully</source>
-        <translation type="unfinished">Tutte le traduzioni sono state scaricate correttamente</translation>
+        <translation>Tutte le traduzioni sono state scaricate correttamente</translation>
     </message>
     <message>
         <source>Downloaded %1 of %2 translation files</source>
-        <translation type="unfinished">Scaricati %1 di %2 file traduzioni</translation>
+        <translation>Scaricati %1 di %2 file traduzioni</translation>
     </message>
 </context>
 </TS>
