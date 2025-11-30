@@ -1116,15 +1116,15 @@ You can enable it in the General tab.</source>
     <name>SoundPanelBridge</name>
     <message>
         <source>No translation files to download</source>
-        <translation>Нет доступных файлов для загрузки</translation>
+        <translation type="vanished">Нет доступных файлов для загрузки</translation>
     </message>
     <message>
         <source>All translations downloaded successfully</source>
-        <translation>Загрузка файлов завершена</translation>
+        <translation type="vanished">Загрузка файлов завершена</translation>
     </message>
     <message>
         <source>Downloaded %1 of %2 translation files</source>
-        <translation>Загружено %1 из %2 файлов перевода</translation>
+        <translation type="vanished">Загружено %1 из %2 файлов перевода</translation>
     </message>
 </context>
 <context>
@@ -1171,6 +1171,18 @@ You can enable it in the General tab.</source>
     <message>
         <source>Update started.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No translation files to download</source>
+        <translation type="unfinished">Нет доступных файлов для загрузки</translation>
+    </message>
+    <message>
+        <source>All translations downloaded successfully</source>
+        <translation type="unfinished">Загрузка файлов завершена</translation>
+    </message>
+    <message>
+        <source>Downloaded %1 of %2 translation files</source>
+        <translation type="unfinished">Загружено %1 из %2 файлов перевода</translation>
     </message>
 </context>
 </TS>

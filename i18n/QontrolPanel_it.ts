@@ -975,15 +975,15 @@ Puoi abilitarlo nella scheda Generale.</translation>
     <name>SoundPanelBridge</name>
     <message>
         <source>No translation files to download</source>
-        <translation>Nessun file traduzione da scaricare</translation>
+        <translation type="vanished">Nessun file traduzione da scaricare</translation>
     </message>
     <message>
         <source>All translations downloaded successfully</source>
-        <translation>Tutte le traduzioni sono state scaricate correttamente</translation>
+        <translation type="vanished">Tutte le traduzioni sono state scaricate correttamente</translation>
     </message>
     <message>
         <source>Downloaded %1 of %2 translation files</source>
-        <translation>Scaricati %1 di %2 file traduzioni</translation>
+        <translation type="vanished">Scaricati %1 di %2 file traduzioni</translation>
     </message>
 </context>
 <context>
@@ -1026,6 +1026,18 @@ Puoi abilitarlo nella scheda Generale.</translation>
     <message>
         <source>Update started.</source>
         <translation>Aggiornamento avviato.</translation>
+    </message>
+    <message>
+        <source>No translation files to download</source>
+        <translation type="unfinished">Nessun file traduzione da scaricare</translation>
+    </message>
+    <message>
+        <source>All translations downloaded successfully</source>
+        <translation type="unfinished">Tutte le traduzioni sono state scaricate correttamente</translation>
+    </message>
+    <message>
+        <source>Downloaded %1 of %2 translation files</source>
+        <translation type="unfinished">Scaricati %1 di %2 file traduzioni</translation>
     </message>
 </context>
 </TS>

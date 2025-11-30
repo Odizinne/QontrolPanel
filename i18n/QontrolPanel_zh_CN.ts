@@ -1144,15 +1144,15 @@ You can enable it in the General tab.</source>
     <name>SoundPanelBridge</name>
     <message>
         <source>No translation files to download</source>
-        <translation>无可用语言文件下载</translation>
+        <translation type="vanished">无可用语言文件下载</translation>
     </message>
     <message>
         <source>All translations downloaded successfully</source>
-        <translation>所有语言文件下载成功</translation>
+        <translation type="vanished">所有语言文件下载成功</translation>
     </message>
     <message>
         <source>Downloaded %1 of %2 translation files</source>
-        <translation>%2 所有语言文件中的 1% 已下载</translation>
+        <translation type="vanished">%2 所有语言文件中的 1% 已下载</translation>
     </message>
 </context>
 <context>
@@ -1199,6 +1199,18 @@ You can enable it in the General tab.</source>
     <message>
         <source>Update started.</source>
         <translation>开始更新.</translation>
+    </message>
+    <message>
+        <source>No translation files to download</source>
+        <translation type="unfinished">无可用语言文件下载</translation>
+    </message>
+    <message>
+        <source>All translations downloaded successfully</source>
+        <translation type="unfinished">所有语言文件下载成功</translation>
+    </message>
+    <message>
+        <source>Downloaded %1 of %2 translation files</source>
+        <translation type="unfinished">%2 所有语言文件中的 1% 已下载</translation>
     </message>
 </context>
 </TS>

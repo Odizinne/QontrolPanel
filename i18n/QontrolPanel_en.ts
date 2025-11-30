@@ -970,21 +970,6 @@ You can enable it in the General tab.</source>
     </message>
 </context>
 <context>
-    <name>SoundPanelBridge</name>
-    <message>
-        <source>No translation files to download</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>All translations downloaded successfully</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Downloaded %1 of %2 translation files</source>
-        <translation></translation>
-    </message>
-</context>
-<context>
     <name>SystemTray</name>
     <message>
         <source>Output: </source>
@@ -1027,6 +1012,18 @@ You can enable it in the General tab.</source>
     </message>
     <message>
         <source>Update started.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No translation files to download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All translations downloaded successfully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloaded %1 of %2 translation files</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

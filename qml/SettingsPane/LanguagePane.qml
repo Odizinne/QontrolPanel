@@ -49,13 +49,13 @@ ColumnLayout {
                             enabled: !dlCard.downloadInProgress
                             onClicked: {
                                 dlCard.downloadInProgress = true
-                                SoundPanelBridge.downloadLatestTranslations()
+                                Updater.downloadLatestTranslations()
                             }
                         }
                     }
 
                     Connections {
-                        target: SoundPanelBridge
+                        target: Updater
 
                         function onTranslationDownloadFinished(success, message) {
                             dlCard.downloadInProgress = false
@@ -109,7 +109,7 @@ ColumnLayout {
                     id: progressCard
                     Layout.fillWidth: true
                     title: qsTr("Translation Progress")
-                    description: SoundPanelBridge.hasTranslationProgressData() ?
+                    description: Updater.hasTranslationProgressData() ?
                                      qsTr("Current language completion") :
                                      qsTr("Fetch for new translation to get data")
 
@@ -123,12 +123,12 @@ ColumnLayout {
 
                         function updateProgress() {
                             let currentLangCode = SoundPanelBridge.getLanguageCodeFromIndex(UserSettings.languageIndex)
-                            progressPercentage = SoundPanelBridge.getTranslationProgress(currentLangCode)
+                            progressPercentage = Updater.getTranslationProgress(currentLangCode)
                             value = progressPercentage
                         }
 
                         function updateVisibilityAndProgress() {
-                            visible = SoundPanelBridge.hasTranslationProgressData()
+                            visible = Updater.hasTranslationProgressData()
                             if (visible) {
                                 updateProgress()
                             }
@@ -147,7 +147,7 @@ ColumnLayout {
                         }
 
                         Connections {
-                            target: SoundPanelBridge
+                            target: Updater
                             function onTranslationDownloadFinished(success, message) {
                                 Qt.callLater(progressBar.updateVisibilityAndProgress)
                             }

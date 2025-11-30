@@ -1015,15 +1015,15 @@ Vous pouvez l&apos;activer dans l&apos;onglet Général.</translation>
     <name>SoundPanelBridge</name>
     <message>
         <source>Downloaded %1 of %2 translation files</source>
-        <translation>Téléchargé %1 sur %2 fichiers de traduction</translation>
+        <translation type="vanished">Téléchargé %1 sur %2 fichiers de traduction</translation>
     </message>
     <message>
         <source>No translation files to download</source>
-        <translation>Aucune mise à jour disponible</translation>
+        <translation type="vanished">Aucune mise à jour disponible</translation>
     </message>
     <message>
         <source>All translations downloaded successfully</source>
-        <translation>Toutes les traductions ont été téléchargées avec succès</translation>
+        <translation type="vanished">Toutes les traductions ont été téléchargées avec succès</translation>
     </message>
 </context>
 <context>
@@ -1070,6 +1070,18 @@ Vous pouvez l&apos;activer dans l&apos;onglet Général.</translation>
     <message>
         <source>You are using the latest version</source>
         <translation>L&apos;application est à jour</translation>
+    </message>
+    <message>
+        <source>No translation files to download</source>
+        <translation type="unfinished">Aucune mise à jour disponible</translation>
+    </message>
+    <message>
+        <source>All translations downloaded successfully</source>
+        <translation type="unfinished">Toutes les traductions ont été téléchargées avec succès</translation>
+    </message>
+    <message>
+        <source>Downloaded %1 of %2 translation files</source>
+        <translation type="unfinished">Téléchargé %1 sur %2 fichiers de traduction</translation>
     </message>
 </context>
 </TS>

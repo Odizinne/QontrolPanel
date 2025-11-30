@@ -10,8 +10,10 @@
 #include <QStandardPaths>
 #include <QUrl>
 #include <QDebug>
+#include <QSettings>
 #include "version.h"
 #include "logmanager.h"
+#include "languages.h"
 
 Updater* Updater::m_instance = nullptr;
 
@@ -37,7 +39,36 @@ Updater::Updater(QObject *parent)
     , m_isChecking(false)
     , m_isDownloading(false)
     , m_downloadProgress(0)
+    , m_totalTranslationDownloads(0)
+    , m_completedTranslationDownloads(0)
+    , m_failedTranslationDownloads(0)
+    , m_translationAutoUpdateTimer(new QTimer(this))
+    , m_appUpdateCheckTimer(new QTimer(this))
 {
+    loadTranslationProgressData();
+
+    m_translationAutoUpdateTimer->setInterval(4 * 60 * 60 * 1000);
+    m_translationAutoUpdateTimer->setSingleShot(false);
+    connect(m_translationAutoUpdateTimer, &QTimer::timeout, this, &Updater::checkForTranslationUpdates);
+    m_translationAutoUpdateTimer->start();
+
+    m_appUpdateCheckTimer->setInterval(4 * 60 * 60 * 1000);
+    m_appUpdateCheckTimer->setSingleShot(false);
+    connect(m_appUpdateCheckTimer, &QTimer::timeout, this, &Updater::checkForAppUpdatesTimer);
+    m_appUpdateCheckTimer->start();
+
+    QSettings settings("Odizinne", "QontrolPanel");
+    if (settings.value("autoUpdateTranslations", false).toBool()) {
+        QTimer::singleShot(5000, this, [this]() {
+            downloadLatestTranslations();
+        });
+    }
+
+    if (settings.value("autoFetchForAppUpdates", false).toBool()) {
+        QTimer::singleShot(5000, this, [this]() {
+            checkForAppUpdatesAuto();
+        });
+    }
 }
 
 void Updater::checkForUpdates()
@@ -79,7 +110,7 @@ void Updater::onVersionCheckFinished()
 
     m_latestVersion = obj["tag_name"].toString();
     if (m_latestVersion.startsWith("v")) {
-        m_latestVersion = m_latestVersion.mid(1); // Remove 'v' prefix
+        m_latestVersion = m_latestVersion.mid(1);
     }
 
     // Extract release notes
@@ -257,4 +288,272 @@ void Updater::setReleaseNotes(const QString& notes)
             emit hasReleaseNotesChanged();
         }
     }
+}
+
+void Updater::checkForTranslationUpdates()
+{
+    QSettings settings("Odizinne", "QontrolPanel");
+    if (!settings.value("autoUpdateTranslations", false).toBool()) {
+        m_translationAutoUpdateTimer->stop();
+        return;
+    }
+
+    if (m_activeTranslationDownloads.isEmpty()) {
+        downloadLatestTranslations();
+    }
+}
+
+void Updater::downloadLatestTranslations()
+{
+    cancelTranslationDownload();
+
+    m_totalTranslationDownloads = 0;
+    m_completedTranslationDownloads = 0;
+    m_failedTranslationDownloads = 0;
+
+    QStringList languageCodes = getLanguageCodes();
+    QString baseUrl = "https://github.com/Odizinne/QontrolPanel/raw/refs/heads/main/i18n/compiled/QontrolPanel_%1.qm";
+
+    m_totalTranslationDownloads = languageCodes.size();
+    emit translationDownloadStarted();
+
+    for (const QString& langCode : languageCodes) {
+        QString url = baseUrl.arg(langCode);
+        downloadTranslationFile(langCode, url);
+    }
+
+    downloadTranslationProgressFile();
+
+    if (m_totalTranslationDownloads == 0) {
+        emit translationDownloadFinished(false, tr("No translation files to download"));
+    }
+}
+
+void Updater::cancelTranslationDownload()
+{
+    for (QNetworkReply* reply : m_activeTranslationDownloads) {
+        if (reply && reply->isRunning()) {
+            reply->abort();
+        }
+    }
+    m_activeTranslationDownloads.clear();
+}
+
+void Updater::downloadTranslationFile(const QString& languageCode, const QString& githubUrl)
+{
+    QUrl url(githubUrl);
+    QNetworkRequest request;
+    request.setUrl(url);
+
+    QString userAgent = QString("QontrolPanel/%1").arg(APP_VERSION_STRING);
+    request.setRawHeader("User-Agent", userAgent.toUtf8());
+    request.setAttribute(QNetworkRequest::Http2AllowedAttribute, false);
+    request.setRawHeader("Accept", "*/*");
+    request.setRawHeader("Connection", "keep-alive");
+    request.setTransferTimeout(30000);
+
+    QNetworkReply* reply = m_networkManager->get(request);
+    reply->setProperty("languageCode", languageCode);
+    m_activeTranslationDownloads.append(reply);
+
+    connect(reply, &QNetworkReply::downloadProgress, this,
+            [this, languageCode](qint64 bytesReceived, qint64 bytesTotal) {
+                emit translationDownloadProgress(languageCode,
+                                                 static_cast<int>(bytesReceived),
+                                                 static_cast<int>(bytesTotal));
+            });
+
+    connect(reply, &QNetworkReply::finished, this, &Updater::onTranslationFileDownloaded);
+
+    connect(reply, &QNetworkReply::errorOccurred, this,
+            [this, languageCode](QNetworkReply::NetworkError error) {
+                qWarning() << "Network error for" << languageCode << ":" << error;
+            });
+}
+
+void Updater::onTranslationFileDownloaded()
+{
+    QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
+    if (!reply) return;
+
+    QString languageCode = reply->property("languageCode").toString();
+    m_activeTranslationDownloads.removeAll(reply);
+
+    if (reply->error() == QNetworkReply::NoError) {
+        QString downloadPath = getTranslationDownloadPath();
+        QString fileName = QString("QontrolPanel_%1.qm").arg(languageCode);
+        QString filePath = downloadPath + "/" + fileName;
+
+        QDir().mkpath(downloadPath);
+
+        QFile file(filePath);
+        if (file.open(QIODevice::WriteOnly)) {
+            QByteArray data = reply->readAll();
+            if (!data.isEmpty()) {
+                file.write(data);
+                file.close();
+            } else {
+                qWarning() << "Downloaded empty file for:" << languageCode;
+                m_failedTranslationDownloads++;
+            }
+        } else {
+            qWarning() << "Failed to save translation file:" << filePath;
+            m_failedTranslationDownloads++;
+        }
+    } else {
+        qWarning() << "Failed to download translation for" << languageCode
+                   << "Error:" << reply->error()
+                   << "HTTP Status:" << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt()
+                   << "Message:" << reply->errorString();
+        m_failedTranslationDownloads++;
+    }
+
+    m_completedTranslationDownloads++;
+    emit translationFileCompleted(languageCode, m_completedTranslationDownloads, m_totalTranslationDownloads);
+
+    if (m_completedTranslationDownloads >= m_totalTranslationDownloads) {
+        bool success = (m_failedTranslationDownloads == 0);
+        QString message;
+
+        if (success) {
+            message = tr("All translations downloaded successfully");
+        } else {
+            message = tr("Downloaded %1 of %2 translation files")
+            .arg(m_totalTranslationDownloads - m_failedTranslationDownloads)
+                .arg(m_totalTranslationDownloads);
+        }
+
+        emit translationDownloadFinished(success, message);
+    }
+
+    reply->deleteLater();
+}
+
+QString Updater::getTranslationDownloadPath() const
+{
+    QString appDir = QCoreApplication::applicationDirPath();
+    return appDir + "/i18n";
+}
+
+QString Updater::getTranslationProgressPath() const
+{
+    QString appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    QDir().mkpath(appDataPath);
+    return appDataPath + "/translation_progress.json";
+}
+
+void Updater::loadTranslationProgressData()
+{
+    QString progressFilePath = getTranslationProgressPath();
+    LogManager::instance()->sendLog(LogManager::Updater,
+                                    QString("Loading translation progress data from: %1").arg(progressFilePath));
+
+    QFile file(progressFilePath);
+    if (!file.exists()) {
+        LogManager::instance()->sendWarn(LogManager::Updater,
+                                         QString("Translation progress file does not exist: %1").arg(progressFilePath));
+        return;
+    }
+
+    if (!file.open(QIODevice::ReadOnly)) {
+        LogManager::instance()->sendCritical(LogManager::Updater,
+                                             QString("Failed to open translation progress file: %1").arg(file.errorString()));
+        return;
+    }
+
+    QByteArray data = file.readAll();
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    if (doc.isNull()) {
+        LogManager::instance()->sendCritical(LogManager::Updater,
+                                             "Failed to parse translation progress JSON - invalid format");
+        return;
+    }
+
+    m_translationProgress = doc.object();
+    LogManager::instance()->sendLog(LogManager::Updater,
+                                    "Translation progress data loaded successfully");
+    emit translationProgressDataLoaded();
+}
+
+void Updater::downloadTranslationProgressFile()
+{
+    QString githubUrl = "https://raw.githubusercontent.com/Odizinne/QontrolPanel/main/i18n/compiled/translation_progress.json";
+    LogManager::instance()->sendLog(LogManager::Updater,
+                                    QString("Downloading translation progress file from: %1").arg(githubUrl));
+
+    QNetworkRequest request(githubUrl);
+    request.setHeader(QNetworkRequest::UserAgentHeader, "QontrolPanel");
+    QNetworkReply* reply = m_networkManager->get(request);
+
+    connect(reply, &QNetworkReply::finished, [this, reply]() {
+        if (reply->error() == QNetworkReply::NoError) {
+            QByteArray data = reply->readAll();
+            LogManager::instance()->sendLog(LogManager::Updater,
+                                            QString("Translation progress data downloaded (%1 bytes)").arg(data.size()));
+
+            QString progressFilePath = getTranslationProgressPath();
+            QFile file(progressFilePath);
+            if (file.open(QIODevice::WriteOnly)) {
+                file.write(data);
+                file.close();
+                LogManager::instance()->sendLog(LogManager::Updater,
+                                                "Translation progress file saved successfully");
+                loadTranslationProgressData();
+            } else {
+                LogManager::instance()->sendCritical(LogManager::Updater,
+                                                     QString("Failed to save translation progress file: %1").arg(file.errorString()));
+            }
+        } else {
+            LogManager::instance()->sendCritical(LogManager::Updater,
+                                                 QString("Failed to download translation progress: %1").arg(reply->errorString()));
+        }
+        reply->deleteLater();
+    });
+}
+
+int Updater::getTranslationProgress(const QString& languageCode)
+{
+    if (m_translationProgress.contains(languageCode)) {
+        return m_translationProgress[languageCode].toInt();
+    }
+    return 0;
+}
+
+bool Updater::hasTranslationProgressData()
+{
+    return !m_translationProgress.isEmpty();
+}
+
+void Updater::checkForAppUpdatesTimer()
+{
+    QSettings settings("Odizinne", "QontrolPanel");
+    if (!settings.value("autoFetchForAppUpdates", false).toBool()) {
+        m_appUpdateCheckTimer->stop();
+        return;
+    }
+
+    checkForAppUpdatesAuto();
+}
+
+void Updater::checkForAppUpdatesAuto()
+{
+    QSettings settings("Odizinne", "QontrolPanel");
+    if (!settings.value("autoFetchForAppUpdates", false).toBool()) {
+        return;
+    }
+
+    if (m_isChecking || m_isDownloading) {
+        return;
+    }
+
+    connect(this, &Updater::updateFinished, this,
+            [this](bool success, const QString& message) {
+                disconnect(this, &Updater::updateFinished, this, nullptr);
+
+                if (success && m_updateAvailable) {
+                    emit updateAvailableNotification(m_latestVersion);
+                }
+            }, Qt::SingleShotConnection);
+
+    checkForUpdates();
 }

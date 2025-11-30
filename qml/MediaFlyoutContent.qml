@@ -20,7 +20,7 @@ ColumnLayout {
             id: infosLyt
             ColumnLayout {
                 Label {
-                    text: SoundPanelBridge.mediaTitle || ""
+                    text: MediaSessionBridge.mediaTitle || ""
                     font.pixelSize: 14
                     font.bold: true
                     elide: Text.ElideRight
@@ -28,7 +28,7 @@ ColumnLayout {
                 }
 
                 Label {
-                    text: SoundPanelBridge.mediaArtist || ""
+                    text: MediaSessionBridge.mediaArtist || ""
                     font.pixelSize: 12
                     opacity: 0.7
                     elide: Text.ElideRight
@@ -39,9 +39,9 @@ ColumnLayout {
                 Layout.preferredWidth: 64
                 Layout.preferredHeight: 64
                 Layout.alignment: Qt.AlignVCenter
-                source: SoundPanelBridge.mediaArt || ""
+                source: MediaSessionBridge.mediaArt || ""
                 fillMode: Image.PreserveAspectCrop
-                visible: SoundPanelBridge.mediaArt !== ""
+                visible: MediaSessionBridge.mediaArt !== ""
             }
         }
 
@@ -52,21 +52,21 @@ ColumnLayout {
 
             ToolButton {
                 icon.source: "qrc:/icons/prev.png"
-                onClicked: SoundPanelBridge.previousTrack()
+                onClicked: MediaSessionBridge.previousTrack()
                 Layout.preferredWidth: 40
                 Layout.preferredHeight: 40
             }
 
             ToolButton {
-                icon.source: SoundPanelBridge.isMediaPlaying ? "qrc:/icons/pause.png" : "qrc:/icons/play.png"
-                onClicked: SoundPanelBridge.playPause()
+                icon.source: MediaSessionBridge.isMediaPlaying ? "qrc:/icons/pause.png" : "qrc:/icons/play.png"
+                onClicked: MediaSessionBridge.playPause()
                 Layout.preferredWidth: 40
                 Layout.preferredHeight: 40
             }
 
             ToolButton {
                 icon.source: "qrc:/icons/next.png"
-                onClicked: SoundPanelBridge.nextTrack()
+                onClicked: MediaSessionBridge.nextTrack()
                 Layout.preferredWidth: 40
                 Layout.preferredHeight: 40
             }

@@ -1210,15 +1210,15 @@ You can enable it in the General tab.</source>
     <name>SoundPanelBridge</name>
     <message>
         <source>No translation files to download</source>
-        <translation>다운로드할 번역 파일이 없습니다</translation>
+        <translation type="vanished">다운로드할 번역 파일이 없습니다</translation>
     </message>
     <message>
         <source>All translations downloaded successfully</source>
-        <translation>모든 번역이 성공적으로 다운로드되었습니다</translation>
+        <translation type="vanished">모든 번역이 성공적으로 다운로드되었습니다</translation>
     </message>
     <message>
         <source>Downloaded %1 of %2 translation files</source>
-        <translation>%1 / %2 번역 파일을 다운로드했습니다</translation>
+        <translation type="vanished">%1 / %2 번역 파일을 다운로드했습니다</translation>
     </message>
 </context>
 <context>
@@ -1261,6 +1261,18 @@ You can enable it in the General tab.</source>
     <message>
         <source>You are using the latest version</source>
         <translation>최신 버전을 사용하고 있습니다</translation>
+    </message>
+    <message>
+        <source>No translation files to download</source>
+        <translation type="unfinished">다운로드할 번역 파일이 없습니다</translation>
+    </message>
+    <message>
+        <source>All translations downloaded successfully</source>
+        <translation type="unfinished">모든 번역이 성공적으로 다운로드되었습니다</translation>
+    </message>
+    <message>
+        <source>Downloaded %1 of %2 translation files</source>
+        <translation type="unfinished">%1 / %2 번역 파일을 다운로드했습니다</translation>
     </message>
     <message>
         <source>Update started. Application will restart.</source>

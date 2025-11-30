@@ -7,10 +7,10 @@ Menu {
     signal setPowerAction(int action)
 
     MenuItem {
-        enabled: SoundPanelBridge.isSleepSupported()
+        enabled: PowerBridge.isSleepSupported()
         icon.source: "qrc:/icons/sleep.svg"
         text: qsTr("Sleep")
-        onTriggered: SoundPanelBridge.sleep()
+        onTriggered: PowerBridge.sleep()
     }
 
     MenuItem {
@@ -20,10 +20,10 @@ Menu {
             if (UserSettings.showPowerDialogConfirmation) {
                 powerMenu.setPowerAction(0)
             } else {
-                SoundPanelBridge.hibernate()
+                PowerBridge.hibernate()
             }
         }
-        enabled: SoundPanelBridge.isHibernateSupported()
+        enabled: PowerBridge.isHibernateSupported()
     }
 
     MenuItem {
@@ -33,7 +33,7 @@ Menu {
             if (UserSettings.showPowerDialogConfirmation) {
                 powerMenu.setPowerAction(1)
             } else {
-                SoundPanelBridge.restart()
+                PowerBridge.restart()
             }
         }
     }
@@ -41,12 +41,12 @@ Menu {
     MenuItem {
         icon.source: "qrc:/icons/restart.svg"
         text: qsTr("Restart UEFI")
-        enabled: SoundPanelBridge.isUEFISupported
+        enabled: PowerBridge.isUEFISupported
         onTriggered: {
             if (UserSettings.showPowerDialogConfirmation) {
                 powerMenu.setPowerAction(4)
             } else {
-                SoundPanelBridge.restartToUEFI()
+                PowerBridge.restartToUEFI()
             }
         }
     }
@@ -58,7 +58,7 @@ Menu {
             if (UserSettings.showPowerDialogConfirmation) {
                 powerMenu.setPowerAction(2)
             } else {
-                SoundPanelBridge.shutdown()
+                PowerBridge.shutdown()
             }
         }
     }
@@ -68,7 +68,7 @@ Menu {
     MenuItem {
         icon.source: "qrc:/icons/lock.svg"
         text: qsTr("Lock")
-        onTriggered: SoundPanelBridge.lockAccount()
+        onTriggered: PowerBridge.lockAccount()
     }
 
     MenuItem {
@@ -78,15 +78,15 @@ Menu {
             if (UserSettings.showPowerDialogConfirmation) {
                 powerMenu.setPowerAction(3)
             } else {
-                SoundPanelBridge.signOut()
+                PowerBridge.signOut()
             }
         }
     }
 
     MenuItem {
         icon.source: "qrc:/icons/switch.svg"
-        enabled: SoundPanelBridge.hasMultipleUsers()
+        enabled: PowerBridge.hasMultipleUsers()
         text: qsTr("Switch User")
-        onTriggered: SoundPanelBridge.switchAccount()
+        onTriggered: PowerBridge.switchAccount()
     }
 }

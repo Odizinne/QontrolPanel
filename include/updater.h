@@ -7,12 +7,14 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QQmlEngine>
+#include <QTimer>
 
 class Updater : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
     QML_SINGLETON
+
     Q_PROPERTY(bool updateAvailable READ updateAvailable NOTIFY updateAvailableChanged)
     Q_PROPERTY(QString latestVersion READ latestVersion NOTIFY latestVersionChanged)
     Q_PROPERTY(QString currentVersion READ currentVersion CONSTANT)
@@ -27,7 +29,12 @@ public:
     static Updater* create(QQmlEngine *qmlEngine, QJSEngine *jsEngine);
 
     Q_INVOKABLE void checkForUpdates();
+    Q_INVOKABLE void checkForAppUpdatesAuto();
     Q_INVOKABLE void downloadAndInstall();
+    Q_INVOKABLE void downloadLatestTranslations();
+    Q_INVOKABLE void cancelTranslationDownload();
+    Q_INVOKABLE int getTranslationProgress(const QString& languageCode);
+    Q_INVOKABLE bool hasTranslationProgressData();
 
     bool updateAvailable() const { return m_updateAvailable; }
     QString latestVersion() const { return m_latestVersion; }
@@ -47,11 +54,21 @@ signals:
     void hasReleaseNotesChanged();
     void releaseNotesChanged();
     void updateFinished(bool success, const QString& message);
+    void updateAvailableNotification(const QString& version);
+    void translationDownloadStarted();
+    void translationDownloadProgress(const QString& language, int bytesReceived, int bytesTotal);
+    void translationDownloadFinished(bool success, const QString& message);
+    void translationDownloadError(const QString& errorMessage);
+    void translationFileCompleted(const QString& language, int completed, int total);
+    void translationProgressDataLoaded();
 
 private slots:
     void onVersionCheckFinished();
     void onDownloadFinished();
     void onDownloadProgress(qint64 bytesReceived, qint64 bytesTotal);
+    void onTranslationFileDownloaded();
+    void checkForTranslationUpdates();
+    void checkForAppUpdatesTimer();
 
 private:
     explicit Updater(QObject *parent = nullptr);
@@ -66,6 +83,14 @@ private:
     QString m_downloadUrl;
     QString m_releaseNotes;
 
+    QList<QNetworkReply*> m_activeTranslationDownloads;
+    int m_totalTranslationDownloads;
+    int m_completedTranslationDownloads;
+    int m_failedTranslationDownloads;
+    QJsonObject m_translationProgress;
+    QTimer* m_translationAutoUpdateTimer;
+    QTimer* m_appUpdateCheckTimer;
+
     QString getCurrentVersion() const;
     bool isNewerVersion(const QString& latest, const QString& current) const;
     void installExecutable(const QString& newExePath);
@@ -73,4 +98,9 @@ private:
     void setDownloading(bool downloading);
     void setDownloadProgress(int progress);
     void setReleaseNotes(const QString& notes);
+    void downloadTranslationFile(const QString& languageCode, const QString& githubUrl);
+    QString getTranslationDownloadPath() const;
+    QString getTranslationProgressPath() const;
+    void loadTranslationProgressData();
+    void downloadTranslationProgressFile();
 };

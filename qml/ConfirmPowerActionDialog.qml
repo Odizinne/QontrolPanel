@@ -101,19 +101,19 @@ Dialog {
     function performAction() {
         switch (action) {
         case 0:
-            SoundPanelBridge.hibernate()
+            PowerBridge.hibernate()
             break
         case 1:
-            SoundPanelBridge.restart()
+            PowerBridge.restart()
             break
         case 2:
-            SoundPanelBridge.shutdown()
+            PowerBridge.shutdown()
             break
         case 3:
-            SoundPanelBridge.signOut()
+            PowerBridge.signOut()
             break
         case 4:
-            SoundPanelBridge.restartToUEFI()
+            PowerBridge.restartToUEFI()
             break
         default:
             break
