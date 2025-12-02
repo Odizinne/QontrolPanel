@@ -658,7 +658,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Fetch rate (seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Frequenza recupero (secondi)</translation>
     </message>
     <message>
         <source>Device battery</source>
@@ -731,7 +731,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Unknow date</source>
-        <translation>23.11.2025</translation>
+        <translation>02.12.2025</translation>
     </message>
     <message>
         <source>Update Translations</source>
@@ -852,21 +852,6 @@ Puoi abilitarlo nella scheda Generale.</translation>
     <message>
         <source>Switch User</source>
         <translation>Cambia utente</translation>
-    </message>
-</context>
-<context>
-    <name>QontrolPanel</name>
-    <message>
-        <source>Enabled</source>
-        <translation type="vanished">Abilitato</translation>
-    </message>
-    <message>
-        <source>Disabled</source>
-        <translation type="vanished">Disabilitato</translation>
-    </message>
-    <message>
-        <source>ChatMix %1</source>
-        <translation type="vanished">ChatMix %1</translation>
     </message>
 </context>
 <context>
@@ -991,7 +976,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source></source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Windows sound settings (Legacy)</source>
