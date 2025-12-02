@@ -415,11 +415,11 @@
     </message>
     <message>
         <source>Restart to UEFI</source>
-        <translation type="unfinished"></translation>
+        <translation>UEFI로 다시 시작</translation>
     </message>
     <message>
         <source>System will restart to UEFI in %1 seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>시스템은 %1초 후에 UEFI로 다시 시작됩니다</translation>
     </message>
     <message>
         <source>OK</source>
@@ -778,7 +778,7 @@ You can enable it in the General tab.</source>
     </message>
     <message>
         <source>Fetch rate (seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>가져오기 속도 (초)</translation>
     </message>
     <message>
         <source>Device battery</source>
@@ -1031,7 +1031,7 @@ You can enable it in the General tab.</source>
     </message>
     <message>
         <source>Restart UEFI</source>
-        <translation type="unfinished"></translation>
+        <translation>UEFI 다시 시작</translation>
     </message>
     <message>
         <source>Shutdown</source>
@@ -1268,15 +1268,15 @@ You can enable it in the General tab.</source>
     </message>
     <message>
         <source>No translation files to download</source>
-        <translation type="unfinished">다운로드할 번역 파일이 없습니다</translation>
+        <translation>다운로드할 번역 파일이 없습니다</translation>
     </message>
     <message>
         <source>All translations downloaded successfully</source>
-        <translation type="unfinished">모든 번역이 성공적으로 다운로드되었습니다</translation>
+        <translation>모든 번역이 성공적으로 다운로드되었습니다</translation>
     </message>
     <message>
         <source>Downloaded %1 of %2 translation files</source>
-        <translation type="unfinished">%1 / %2 번역 파일을 다운로드했습니다</translation>
+        <translation>%1 / %2 번역 파일을 다운로드했습니다</translation>
     </message>
     <message>
         <source>Update started. Application will restart.</source>
