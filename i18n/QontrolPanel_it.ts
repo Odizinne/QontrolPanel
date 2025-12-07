@@ -170,27 +170,19 @@
     <name>ChatMixNotification</name>
     <message>
         <source>Microphone Muted</source>
-        <translation type="unfinished"></translation>
+        <translation>Muting microfono ON</translation>
     </message>
     <message>
         <source>Microphone Unmuted</source>
-        <translation type="unfinished"></translation>
+        <translation>Muting microfono OFF</translation>
     </message>
     <message>
         <source>Microphone Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Microfono abilitato</translation>
     </message>
     <message>
         <source>Microphone Disabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ChatMix Enabled</source>
-        <translation type="vanished">ChatMix abilitato</translation>
-    </message>
-    <message>
-        <source>ChatMix Disabled</source>
-        <translation type="vanished">ChatMix disabilitato</translation>
+        <translation>Microfono disabilitato</translation>
     </message>
 </context>
 <context>
@@ -674,7 +666,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Notification on low battery</source>
-        <translation type="unfinished"></translation>
+        <translation>Notifica batteria scarica</translation>
     </message>
     <message>
         <source>Fetch rate (seconds)</source>
@@ -693,23 +685,11 @@ Puoi abilitarlo nella scheda Generale.</translation>
     <name>IntroWindow</name>
     <message>
         <source>Automatic application update</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiornamento automatico applicazione</translation>
     </message>
     <message>
         <source>Get Started</source>
         <translation>Iniziamo</translation>
-    </message>
-    <message>
-        <source>The tray icon is probably hidden and can be added to the tray area by dragging it as shown in the video below.</source>
-        <translation type="vanished">L&apos;icona nella barra sistema è probabilmente nascosta e può essere aggiunta all&apos;area della barra sistema trascinandola come mostrato nel video qui sotto.</translation>
-    </message>
-    <message>
-        <source>You can then click on the tray icon to reveal the panel.</source>
-        <translation type="vanished">Per visualizzare il pannello puoi fare clic sull&apos;icona nella barra sistema.</translation>
-    </message>
-    <message>
-        <source>Automatic application update fetching</source>
-        <translation type="vanished">Aggiornamento automatico applicazione</translation>
     </message>
     <message>
         <source>Automatic translations update</source>
@@ -755,7 +735,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Unknow date</source>
-        <translation>02.12.2025</translation>
+        <translation>07.12.2025</translation>
     </message>
     <message>
         <source>Update Translations</source>
@@ -965,11 +945,11 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Toggle Microphone Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Muting microfono ON/OFF</translation>
     </message>
     <message>
         <source>Shortcut to mute/unmute microphone</source>
-        <translation type="unfinished"></translation>
+        <translation>Collegamento a muting microfono ON/OFF</translation>
     </message>
     <message>
         <source>Set Panel Shortcut</source>
@@ -977,7 +957,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Set Microphone Mute Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Imposta scorciatoia muting microfono</translation>
     </message>
     <message>
         <source>Press the desired key combination</source>
