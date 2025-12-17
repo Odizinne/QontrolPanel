@@ -390,23 +390,23 @@
     </message>
     <message>
         <source>Filter by:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtra per:</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>Configura</translation>
     </message>
     <message>
         <source>Auto-scroll</source>
-        <translation type="unfinished"></translation>
+        <translation>Scorrimento automatico</translation>
     </message>
     <message>
         <source>Copy All</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia tutto</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Azzera</translation>
     </message>
 </context>
 <context>
@@ -755,7 +755,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Unknow date</source>
-        <translation>07.12.2025</translation>
+        <translation type="unfinished">17.12.2025</translation>
     </message>
     <message>
         <source>Update Translations</source>
@@ -822,10 +822,6 @@ Puoi abilitarlo nella scheda Generale.</translation>
     <message>
         <source>Version %1 is available for download</source>
         <translation>È disponibile la versione %1</translation>
-    </message>
-    <message>
-        <source>System sounds</source>
-        <translation type="vanished">Suoni sistema</translation>
     </message>
     <message>
         <source>ChatMix</source>
