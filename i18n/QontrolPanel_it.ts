@@ -48,24 +48,12 @@
         <translation>Controlla margine asse Y del pannello</translation>
     </message>
     <message>
-        <source>Applications and devices label</source>
-        <translation type="vanished">Etichetta applicazioni e dispositivi</translation>
-    </message>
-    <message>
         <source>Show audio level</source>
         <translation>Visualizza livello audio</translation>
     </message>
     <message>
         <source>Display audio level value in slider</source>
         <translation>Visualizza livello audio nel cursore</translation>
-    </message>
-    <message>
-        <source>Opacity animations</source>
-        <translation type="vanished">Opacità animazione</translation>
-    </message>
-    <message>
-        <source>Display device icon</source>
-        <translation type="vanished">Visualizza icona dispositivo</translation>
     </message>
     <message>
         <source>Tray icon theme</source>
@@ -612,14 +600,6 @@ Se vuoi supportare il mio lavoro, qualsiasi contributo sarebbe molto apprezzato!
         <translation>QSS verrà eseguito ad avvio del sistema</translation>
     </message>
     <message>
-        <source>Close device list automatically</source>
-        <translation type="vanished">Chiudi automaticamente elenco dispositivi</translation>
-    </message>
-    <message>
-        <source>Device list will automatically close after selecting a device</source>
-        <translation type="vanished">L&apos;elenco dei dispositivi si chiuderà automaticamente dopo aver selezionato un dispositivo</translation>
-    </message>
-    <message>
         <source>Normal</source>
         <translation>Normale</translation>
     </message>
@@ -646,10 +626,6 @@ Se vuoi supportare il mio lavoro, qualsiasi contributo sarebbe molto apprezzato!
     <message>
         <source>Show power action confirmation</source>
         <translation>Visualizza conferma azione alimentazione</translation>
-    </message>
-    <message>
-        <source>Power action confirmation timeout</source>
-        <translation type="vanished">Timeout conferma azione alimentazione</translation>
     </message>
 </context>
 <context>
@@ -754,10 +730,6 @@ Puoi abilitarlo nella scheda Generale.</translation>
         <translation>Data traduzione</translation>
     </message>
     <message>
-        <source>Unknow date</source>
-        <translation type="obsolete">17.12.2025</translation>
-    </message>
-    <message>
         <source>Update Translations</source>
         <translation>Aggiorna traduzioni</translation>
     </message>
@@ -803,7 +775,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Unknown date</source>
-        <translation type="unfinished"></translation>
+        <translation>19.12.2025</translation>
     </message>
 </context>
 <context>
@@ -829,7 +801,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>System sounds</source>
-        <translation type="unfinished">Suoni sistema</translation>
+        <translation>Suoni sistema</translation>
     </message>
     <message>
         <source>ChatMix</source>
