@@ -802,7 +802,7 @@ You can enable it in the General tab.</source>
     </message>
     <message>
         <source>Current language completion</source>
-        <translation>現在の言語の進捗情報です</translation>
+        <translation>現在の言語の進捗状況です</translation>
     </message>
     <message>
         <source>Fetch for new translation to get data</source>
