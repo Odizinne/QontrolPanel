@@ -178,11 +178,11 @@
     </message>
     <message>
         <source>ChatMix Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix を有効にしました</translation>
     </message>
     <message>
         <source>ChatMix Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix を無効にしました</translation>
     </message>
     <message>
         <source>Microphone Enabled</source>
@@ -762,7 +762,7 @@ You can enable it in the General tab.</source>
     </message>
     <message>
         <source>Unknow date</source>
-        <translation type="vanished">2025.12.19</translation>
+        <translation type="vanished">2025.12.20</translation>
     </message>
     <message>
         <source>Update Translations</source>
@@ -802,7 +802,7 @@ You can enable it in the General tab.</source>
     </message>
     <message>
         <source>Current language completion</source>
-        <translation>現在の言語が完了</translation>
+        <translation>現在の言語の進捗情報です</translation>
     </message>
     <message>
         <source>Fetch for new translation to get data</source>
@@ -810,7 +810,7 @@ You can enable it in the General tab.</source>
     </message>
     <message>
         <source>Unknown date</source>
-        <translation type="unfinished"></translation>
+        <translation>不明な日時</translation>
     </message>
 </context>
 <context>
@@ -828,7 +828,7 @@ You can enable it in the General tab.</source>
     <name>Main</name>
     <message>
         <source>Update Available</source>
-        <translation>更新が利用可能</translation>
+        <translation>更新が利用可能です</translation>
     </message>
     <message>
         <source>Version %1 is available for download</source>
@@ -1038,7 +1038,7 @@ You can enable it in the General tab.</source>
     <name>Updater</name>
     <message>
         <source>Update available: </source>
-        <translation>更新が利用可能: </translation>
+        <translation>更新が利用可能です: </translation>
     </message>
     <message>
         <source>You are using the latest version</source>
