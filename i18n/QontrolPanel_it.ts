@@ -166,11 +166,11 @@
     </message>
     <message>
         <source>ChatMix Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix abilitato</translation>
     </message>
     <message>
         <source>ChatMix Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix disabilitato</translation>
     </message>
 </context>
 <context>
@@ -771,11 +771,11 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Unknown author</source>
-        <translation type="unfinished"></translation>
+        <translation>RB</translation>
     </message>
     <message>
         <source>Unknown date</source>
-        <translation>19.12.2025</translation>
+        <translation>21.12.2025</translation>
     </message>
 </context>
 <context>
