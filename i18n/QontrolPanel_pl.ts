@@ -166,11 +166,11 @@
     </message>
     <message>
         <source>ChatMix Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation type="ChatMix włączony"></translation>
     </message>
     <message>
         <source>ChatMix Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation type="ChatMix wyłączony"></translation>
     </message>
 </context>
 <context>
@@ -378,19 +378,19 @@
     </message>
     <message>
         <source>Filter by:</source>
-        <translation type="unfinished"></translation>
+        <translation type="Filtruj wg:"></translation>
     </message>
     <message>
         <source>Auto-scroll</source>
-        <translation type="unfinished"></translation>
+        <translation type="Auto przewijanie"></translation>
     </message>
     <message>
         <source>Copy All</source>
-        <translation type="unfinished"></translation>
+        <translation type="Kopiuj wszystko"></translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="Wyczyść"></translation>
     </message>
 </context>
 <context>
@@ -696,11 +696,11 @@ Można ją włączyć w zakładce Ogólne.</translation>
     <name>LabeledSwitch</name>
     <message>
         <source>On</source>
-        <translation>Wł</translation>
+        <translation>Wł.</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation>Wył</translation>
+        <translation>Wył.</translation>
     </message>
 </context>
 <context>
@@ -763,11 +763,11 @@ Można ją włączyć w zakładce Ogólne.</translation>
     </message>
     <message>
         <source>Unknown author</source>
-        <translation type="unfinished"></translation>
+        <translation type="Fresta"></translation>
     </message>
     <message>
         <source>Unknown date</source>
-        <translation type="unfinished"></translation>
+        <translation type="01/05/2026"></translation>
     </message>
     <message>
         <source>Translation last updated</source>
@@ -801,62 +801,62 @@ Można ją włączyć w zakładce Ogólne.</translation>
     <name>MediaOverlay</name>
     <message>
         <source>No media playing</source>
-        <translation type="unfinished"></translation>
+        <translation type="Brak odtwarzania multimediów"></translation>
     </message>
 </context>
 <context>
     <name>MediaOverlayPane</name>
     <message>
         <source>Media Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation type="Nakładka multimedialna"></translation>
     </message>
     <message>
         <source>Enable media overlay</source>
-        <translation type="unfinished"></translation>
+        <translation type="Włącz nakładkę multimedialną"></translation>
     </message>
     <message>
         <source>Show a notification overlay when the currently playing song changes</source>
-        <translation type="unfinished"></translation>
+        <translation type="Pokaż nakładkę powiadomienia, gdy zmieni się aktualnie odtwarzany utwór"></translation>
     </message>
     <message>
         <source>Overlay size</source>
-        <translation type="unfinished"></translation>
+        <translation type="Rozmiar nakładki"></translation>
     </message>
     <message>
         <source>Choose the size of the media overlay</source>
-        <translation type="unfinished"></translation>
+        <translation type="Wybierz rozmiar nakładki multimedialnej"></translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"></translation>
+        <translation type="Malutki"></translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation type="Normalny"></translation>
     </message>
     <message>
         <source>Big</source>
-        <translation type="unfinished"></translation>
+        <translation type="Duży"></translation>
     </message>
     <message>
         <source>Overlay position</source>
-        <translation type="unfinished"></translation>
+        <translation type="Pozycja nakładki"></translation>
     </message>
     <message>
         <source>Choose where the media overlay appears on screen</source>
-        <translation type="unfinished"></translation>
+        <translation type="Wybierz, gdzie na ekranie ma się pojawiać nakładka multimediów"></translation>
     </message>
     <message>
         <source>Top Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="Góra Lewa"></translation>
     </message>
     <message>
         <source>Top Center</source>
-        <translation type="unfinished"></translation>
+        <translation type="Góra Środek"></translation>
     </message>
     <message>
         <source>Top Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="Góra Prawa"></translation>
     </message>
     <message>
         <source>Left</source>
@@ -868,15 +868,15 @@ Można ją włączyć w zakładce Ogólne.</translation>
     </message>
     <message>
         <source>Bottom Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="Dół Lewa"></translation>
     </message>
     <message>
         <source>Bottom Center</source>
-        <translation type="unfinished"></translation>
+        <translation type="Dół Środek"></translation>
     </message>
     <message>
         <source>Bottom Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="Dół Prawa"></translation>
     </message>
 </context>
 <context>
@@ -941,7 +941,7 @@ Można ją włączyć w zakładce Ogólne.</translation>
     </message>
     <message>
         <source>Media Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation type="Nakładka multimedialna"></translation>
     </message>
     <message>
         <source>ChatMix</source>
@@ -996,7 +996,7 @@ Można ją włączyć w zakładce Ogólne.</translation>
     </message>
     <message>
         <source>Shortcut to toggle the main panel visibility</source>
-        <translation>Skrót  klawiaturowy do przełączania widoczności panelu głównego</translation>
+        <translation>Skrót klawiaturowy do przełączania widoczności panelu głównego</translation>
     </message>
     <message>
         <source>Change</source>
@@ -1082,7 +1082,7 @@ Można ją włączyć w zakładce Ogólne.</translation>
     </message>
     <message>
         <source>Update started.</source>
-        <translation>Aktualizacja rozpoczęta.</translation>
+        <translation>Aktualizacja uruchomiona.</translation>
     </message>
     <message>
         <source>No translation files to download</source>
