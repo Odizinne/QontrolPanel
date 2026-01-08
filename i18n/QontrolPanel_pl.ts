@@ -166,11 +166,11 @@
     </message>
     <message>
         <source>ChatMix Enabled</source>
-        <translation type="ChatMix włączony"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>ChatMix Disabled</source>
-        <translation type="ChatMix wyłączony"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -378,19 +378,19 @@
     </message>
     <message>
         <source>Filter by:</source>
-        <translation type="Filtruj wg:"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Auto-scroll</source>
-        <translation type="Auto przewijanie"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Copy All</source>
-        <translation type="Kopiuj wszystko"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="Wyczyść"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -763,11 +763,11 @@ Można ją włączyć w zakładce Ogólne.</translation>
     </message>
     <message>
         <source>Unknown author</source>
-        <translation type="Fresta"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Unknown date</source>
-        <translation type="01/05/2026"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Translation last updated</source>
@@ -801,62 +801,62 @@ Można ją włączyć w zakładce Ogólne.</translation>
     <name>MediaOverlay</name>
     <message>
         <source>No media playing</source>
-        <translation type="Brak odtwarzania multimediów"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
     <name>MediaOverlayPane</name>
     <message>
         <source>Media Overlay</source>
-        <translation type="Nakładka multimedialna"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Enable media overlay</source>
-        <translation type="Włącz nakładkę multimedialną"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Show a notification overlay when the currently playing song changes</source>
-        <translation type="Pokaż nakładkę powiadomienia, gdy zmieni się aktualnie odtwarzany utwór"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Overlay size</source>
-        <translation type="Rozmiar nakładki"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Choose the size of the media overlay</source>
-        <translation type="Wybierz rozmiar nakładki multimedialnej"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="Malutki"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="Normalny"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Big</source>
-        <translation type="Duży"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Overlay position</source>
-        <translation type="Pozycja nakładki"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Choose where the media overlay appears on screen</source>
-        <translation type="Wybierz, gdzie na ekranie ma się pojawiać nakładka multimediów"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Top Left</source>
-        <translation type="Góra Lewa"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Top Center</source>
-        <translation type="Góra Środek"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Top Right</source>
-        <translation type="Góra Prawa"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Left</source>
@@ -868,15 +868,15 @@ Można ją włączyć w zakładce Ogólne.</translation>
     </message>
     <message>
         <source>Bottom Left</source>
-        <translation type="Dół Lewa"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Bottom Center</source>
-        <translation type="Dół Środek"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Bottom Right</source>
-        <translation type="Dół Prawa"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -941,7 +941,7 @@ Można ją włączyć w zakładce Ogólne.</translation>
     </message>
     <message>
         <source>Media Overlay</source>
-        <translation type="Nakładka multimedialna"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>ChatMix</source>
