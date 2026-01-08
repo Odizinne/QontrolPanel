@@ -1,1098 +1,1101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.1" language="de_DE">
+<translator>Christian Lauinger (christian@lauinger-clan.de)</translator>
 <context>
     <name>AppearancePane</name>
     <message>
         <source>Appearance &amp; Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Erscheinungsbild &amp; Position</translation>
     </message>
     <message>
         <source>Panel position</source>
-        <translation type="unfinished"></translation>
+        <translation>Panelposition</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Oben</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Unten</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Links</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechts</translation>
     </message>
     <message>
         <source>Taskbar offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Taskleistenversatz</translation>
     </message>
     <message>
         <source>Panel X margin</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel X-Rand</translation>
     </message>
     <message>
         <source>Control panel X axis margin</source>
-        <translation type="unfinished"></translation>
+        <translation>Steuerpanel X-Achsenrand</translation>
     </message>
     <message>
         <source>Panel Y margin</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel Y-Rand</translation>
     </message>
     <message>
         <source>Control panel Y axis margin</source>
-        <translation type="unfinished"></translation>
+        <translation>Steuerpanel Y-Achsenrand</translation>
     </message>
     <message>
         <source>Show audio level</source>
-        <translation type="unfinished"></translation>
+        <translation>Audiopegel anzeigen</translation>
     </message>
     <message>
         <source>Display audio level value in slider</source>
-        <translation type="unfinished"></translation>
+        <translation>Audiopegelwert im Schieberegler anzeigen</translation>
     </message>
     <message>
         <source>Tray icon theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Tray-Symbol-Design</translation>
     </message>
     <message>
         <source>Panel theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel-Design</translation>
     </message>
     <message>
         <source>Choose the appearance of the system tray icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Wählen Sie das Aussehen des System-Tray-Symbols</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Dunkel</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Hell</translation>
     </message>
     <message>
         <source>Windows taskbar size (Only set if using W11 and taskbar is not at screen bottom)</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows-Taskleiste Größe (nur einstellen, wenn W11 verwendet wird und die Taskleiste nicht unten ist)</translation>
     </message>
     <message>
         <source>Choose the color of the system tray icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Wählen Sie die Farbe des System-Tray-Symbols</translation>
     </message>
     <message>
         <source>Tray icon style</source>
-        <translation type="unfinished"></translation>
+        <translation>Tray-Symbol-Stil</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Filled</source>
-        <translation type="unfinished"></translation>
+        <translation>Gefüllt</translation>
     </message>
     <message>
         <source>Battery</source>
-        <translation type="unfinished"></translation>
+        <translation>Batterie</translation>
     </message>
 </context>
 <context>
     <name>ApplicationsListView</name>
     <message>
         <source>System sounds</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemklänge</translation>
     </message>
     <message>
         <source>Rename Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendung umbenennen</translation>
     </message>
     <message>
         <source>Reset to Original Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Auf ursprünglichen Namen zurücksetzen</translation>
     </message>
     <message>
         <source>Original name: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ursprünglicher Name: </translation>
     </message>
     <message>
         <source>Stream index: </source>
-        <translation type="unfinished"></translation>
+        <translation>Stream-Index: </translation>
     </message>
     <message>
         <source>Custom name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzerdefinierter Name:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"></translation>
+        <translation>Entsperren</translation>
     </message>
     <message>
         <source>Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Sperren</translation>
     </message>
 </context>
 <context>
     <name>AudioWorker</name>
     <message>
         <source>System sounds</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemklänge</translation>
     </message>
 </context>
 <context>
     <name>ChatMixNotification</name>
     <message>
         <source>Microphone Muted</source>
-        <translation type="unfinished"></translation>
+        <translation>Mikrofon stummgeschaltet</translation>
     </message>
     <message>
         <source>Microphone Unmuted</source>
-        <translation type="unfinished"></translation>
+        <translation>Mikrofon aktiviert</translation>
     </message>
     <message>
         <source>ChatMix Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix aktiviert</translation>
     </message>
     <message>
         <source>ChatMix Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix deaktiviert</translation>
     </message>
 </context>
 <context>
     <name>CommAppsPane</name>
     <message>
         <source>Communication Apps</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommunikationsanwendungen</translation>
     </message>
     <message>
         <source>Enable ChatMix</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix aktivieren</translation>
     </message>
     <message>
         <source>Control communication apps separately from other applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommunikationsanwendungen separat von anderen Anwendungen steuern</translation>
     </message>
     <message>
         <source>Restored volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiederhergestellte Lautstärke</translation>
     </message>
     <message>
         <source>The volume to set for applications when ChatMix is disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Lautstärke, die für Anwendungen eingestellt wird, wenn ChatMix deaktiviert ist</translation>
     </message>
     <message>
         <source>Communication Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommunikationsanwendungen</translation>
     </message>
     <message>
         <source>Discord</source>
-        <translation type="unfinished"></translation>
+        <translation>Discord</translation>
     </message>
     <message>
         <source>Add App</source>
-        <translation type="unfinished"></translation>
+        <translation>App hinzufügen</translation>
     </message>
     <message>
         <source>ChatMix volume</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix-Lautstärke</translation>
     </message>
     <message>
         <source>Add application names that should be treated as communication apps</source>
-        <translation type="unfinished"></translation>
+        <translation>Fügen Sie Anwendungsnamen hinzu, die als Kommunikationsanwendungen behandelt werden sollen</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <source>Enable ChatMix Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix-Warnung aktivieren</translation>
     </message>
     <message>
         <source>Activating ChatMix will initially set all non communication application volumes to 50%. This might cause loud audio output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Aktivieren von ChatMix setzt zunächst die Lautstärke aller Nicht-Kommunikationsanwendungen auf 50 %. Dies kann zu lauter Audioausgabe führen.</translation>
     </message>
     <message>
         <source>It is recommended to lower your master volume before proceeding to avoid sudden loud sounds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Es wird empfohlen, die Hauptlautstärke zu verringern, um plötzliche laute Geräusche zu vermeiden.</translation>
     </message>
     <message>
         <source>Activate</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivieren</translation>
     </message>
     <message>
         <source>Add Communication App</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommunikationsanwendung hinzufügen</translation>
     </message>
     <message>
         <source>Enter application name (e.g., Discord)</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendungsnamen eingeben (z. B. Discord)</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <source>The volume to set for non communication applications when ChatMix is enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Lautstärke, die für Nicht-Kommunikationsanwendungen eingestellt wird, wenn ChatMix aktiviert ist</translation>
     </message>
     <message>
         <source>Activate ChatMix</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix aktivieren</translation>
     </message>
 </context>
 <context>
     <name>ComponentsPane</name>
     <message>
         <source>Components</source>
-        <translation type="unfinished"></translation>
+        <translation>Komponenten</translation>
     </message>
     <message>
         <source>Enable power menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Energie-Menü aktivieren</translation>
     </message>
     <message>
         <source>Show power button in the panel footer</source>
-        <translation type="unfinished"></translation>
+        <translation>Netzschalter im Panel-Footer anzeigen</translation>
     </message>
     <message>
         <source>Enable brightness control</source>
-        <translation type="unfinished"></translation>
+        <translation>Helligkeitsregelung aktivieren</translation>
     </message>
     <message>
         <source>Enable HeadsetControl integration</source>
-        <translation type="unfinished"></translation>
+        <translation>HeadsetControl-Integration aktivieren</translation>
     </message>
     <message>
         <source>Monitor battery using HeadsetControl for supported devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Batterieüberwachung mit HeadsetControl für unterstützte Geräte</translation>
     </message>
     <message>
         <source>Enable audio device manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio-Geräteverwaltung aktivieren</translation>
     </message>
     <message>
         <source>Display audio device manager in panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio-Geräteverwaltung im Panel anzeigen</translation>
     </message>
     <message>
         <source>Enable application volume mixer</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendungs-Lautstärkemixer aktivieren</translation>
     </message>
     <message>
         <source>Display application volume mixer in panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendungs-Lautstärkemixer im Panel anzeigen</translation>
     </message>
     <message>
         <source>Show brightness control in panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Helligkeitsregelung im Panel anzeigen</translation>
     </message>
     <message>
         <source>Enable media session manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Medien-Session-Manager aktivieren</translation>
     </message>
     <message>
         <source>Display currently playing media from Windows known sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuell wiedergegebene Medien aus bekannten Windows-Quellen anzeigen</translation>
     </message>
 </context>
 <context>
     <name>ConfirmPowerActionDialog</name>
     <message>
         <source>System will hibernate in %1 seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Das System wird in %1 Sekunden in den Ruhezustand versetzt</translation>
     </message>
     <message>
         <source>System will restart in %1 seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Das System wird in %1 Sekunden neu gestartet</translation>
     </message>
     <message>
         <source>System will shutdown in %1 seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Das System wird in %1 Sekunden heruntergefahren</translation>
     </message>
     <message>
         <source>You will be signed out in %1 seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Sie werden in %1 Sekunden abgemeldet</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruhezustand</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>Neustart</translation>
     </message>
     <message>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Herunterfahren</translation>
     </message>
     <message>
         <source>Sign Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Abmelden</translation>
     </message>
     <message>
         <source>Restart to UEFI</source>
-        <translation type="unfinished"></translation>
+        <translation>Neustart zu UEFI</translation>
     </message>
     <message>
         <source>System will restart to UEFI in %1 seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Das System wird in %1 Sekunden zu UEFI neu gestartet</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktion</translation>
     </message>
 </context>
 <context>
     <name>ConsolePane</name>
     <message>
         <source>Console output</source>
-        <translation type="unfinished"></translation>
+        <translation>Konsolenausgabe</translation>
     </message>
     <message>
         <source>Filter by:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtern nach:</translation>
     </message>
     <message>
         <source>Auto-scroll</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisches Scrollen</translation>
     </message>
     <message>
         <source>Copy All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alles kopieren</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Löschen</translation>
     </message>
 </context>
 <context>
     <name>DebugPane</name>
     <message>
         <source>Debug and information</source>
-        <translation type="unfinished"></translation>
+        <translation>Debug und Informationen</translation>
     </message>
     <message>
         <source>Application version</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendungsversion</translation>
     </message>
     <message>
         <source>QT version</source>
-        <translation type="unfinished"></translation>
+        <translation>QT-Version</translation>
     </message>
     <message>
         <source>Commit</source>
-        <translation type="unfinished"></translation>
+        <translation>Commit</translation>
     </message>
     <message>
         <source>Build date</source>
-        <translation type="unfinished"></translation>
+        <translation>Build-Datum</translation>
     </message>
     <message>
         <source>Application Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendungsaktualisierungen</translation>
     </message>
     <message>
         <source>Version %1 is available</source>
-        <translation type="unfinished"></translation>
+        <translation>Version %1 ist verfügbar</translation>
     </message>
     <message>
         <source>Checking...</source>
-        <translation type="unfinished"></translation>
+        <translation>Überprüfung...</translation>
     </message>
     <message>
         <source>Downloading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Herunterladen...</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach Updates suchen</translation>
     </message>
     <message>
         <source>Download and Install</source>
-        <translation type="unfinished"></translation>
+        <translation>Herunterladen und installieren</translation>
     </message>
     <message>
         <source>Release notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Versionshinweise</translation>
     </message>
     <message>
         <source>View what&apos;s new in version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Neuerungen in Version %1 anzeigen</translation>
     </message>
     <message>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzeigen</translation>
     </message>
     <message>
         <source>No release notes available</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Versionshinweise verfügbar</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Version %1</translation>
     </message>
     <message>
         <source>Auto check for app updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch nach App-Updates suchen</translation>
     </message>
     <message>
         <source>Check for application updates at startup and every 4 hours</source>
-        <translation type="unfinished"></translation>
+        <translation>Beim Start und alle 4 Stunden nach Anwendungsupdates suchen</translation>
     </message>
 </context>
 <context>
     <name>DeviceRenamingPane</name>
     <message>
         <source>Renaming</source>
-        <translation type="unfinished"></translation>
+        <translation>Umbenennung</translation>
     </message>
     <message>
         <source>Show:</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzeigen:</translation>
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Geräte</translation>
     </message>
     <message>
         <source>Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendungen</translation>
     </message>
     <message>
         <source>Streams</source>
-        <translation type="unfinished"></translation>
+        <translation>Streams</translation>
     </message>
     <message>
         <source>Custom name</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzerdefinierter Name</translation>
     </message>
 </context>
 <context>
     <name>DevicesListView</name>
     <message>
         <source>Rename Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerät umbenennen</translation>
     </message>
     <message>
         <source>Reset to Original Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Auf ursprünglichen Namen zurücksetzen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>Change Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Symbol ändern</translation>
     </message>
     <message>
         <source>Change Device Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerätesymbol ändern</translation>
     </message>
 </context>
 <context>
     <name>DonatePopup</name>
     <message>
         <source>Found this app useful?</source>
-        <translation type="unfinished"></translation>
+        <translation>Fanden Sie diese App nützlich?</translation>
     </message>
     <message>
         <source>This app is made with care by an independent developer and is not financed by ad revenue.
 If you&apos;d like to support my work, any contribution would be greatly appreciated!</source>
-        <translation type="unfinished"></translation>
+        <translation>Diese App wurde mit Sorgfalt von einem unabhängigen Entwickler erstellt und wird nicht durch Werbeeinnahmen finanziert.
+Wenn Sie meine Arbeit unterstützen möchten, freue ich mich über jeden Beitrag!</translation>
     </message>
     <message>
         <source>Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Unterstützen</translation>
     </message>
     <message>
         <source>Maybe later</source>
-        <translation type="unfinished"></translation>
+        <translation>Vielleicht später</translation>
     </message>
 </context>
 <context>
     <name>ExecutableRenameContextMenu</name>
     <message>
         <source>Rename Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendung umbenennen</translation>
     </message>
     <message>
         <source>Reset to Original Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Auf ursprünglichen Namen zurücksetzen</translation>
     </message>
     <message>
         <source>Mute in Background</source>
-        <translation type="unfinished"></translation>
+        <translation>Im Hintergrund stumm schalten</translation>
     </message>
 </context>
 <context>
     <name>ExecutableRenameDialog</name>
     <message>
         <source>Rename Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendung umbenennen</translation>
     </message>
     <message>
         <source>Original name: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ursprünglicher Name: </translation>
     </message>
     <message>
         <source>Custom name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzerdefinierter Name:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern</translation>
     </message>
 </context>
 <context>
     <name>GeneralPane</name>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Allgemeine Einstellungen</translation>
     </message>
     <message>
         <source>Run at system startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Beim Systemstart ausführen</translation>
     </message>
     <message>
         <source>QSS will boot up when your computer starts</source>
-        <translation type="unfinished"></translation>
+        <translation>QSS wird beim Start Ihres Computers gestartet</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>Schnell</translation>
     </message>
     <message>
         <source>Faster</source>
-        <translation type="unfinished"></translation>
+        <translation>Schneller</translation>
     </message>
     <message>
         <source>Lightspeed</source>
-        <translation type="unfinished"></translation>
+        <translation>Lichtgeschwindigkeit</translation>
     </message>
     <message>
         <source>DDC/CI brightness update rate</source>
-        <translation type="unfinished"></translation>
+        <translation>DDC/CI-Helligkeitsaktualisierungsrate</translation>
     </message>
     <message>
         <source>Controls how frequently brightness commands are sent to external monitors</source>
-        <translation type="unfinished"></translation>
+        <translation>Steuert, wie häufig Helligkeitsbefehle an externe Monitore gesendet werden</translation>
     </message>
     <message>
         <source>Show power action confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestätigung für Energieaktionen anzeigen</translation>
     </message>
 </context>
 <context>
     <name>HeadsetControlPane</name>
     <message>
         <source>No compatible device found.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kein kompatibles Gerät gefunden.</translation>
     </message>
     <message>
         <source>HeadsetControl monitoring is disabled
 You can enable it in the General tab.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die HeadsetControl-Überwachung ist deaktiviert.
+Sie können sie auf der Registerkarte „Allgemein“ aktivieren.</translation>
     </message>
     <message>
         <source>Headset Lighting</source>
-        <translation type="unfinished"></translation>
+        <translation>Headset-Beleuchtung</translation>
     </message>
     <message>
         <source>Show battery status in panel footer</source>
-        <translation type="unfinished"></translation>
+        <translation>Batteriestatus in der Fußzeile des Fensters anzeigen</translation>
     </message>
     <message>
         <source>Toggle RGB lights on your headset</source>
-        <translation type="unfinished"></translation>
+        <translation>RGB-Beleuchtung an Ihrem Headset ein- und ausschalten</translation>
     </message>
     <message>
         <source>Microphone Sidetone</source>
-        <translation type="unfinished"></translation>
+        <translation>Mikrofon-Sidetone</translation>
     </message>
     <message>
         <source>Adjust your voice feedback level</source>
-        <translation type="unfinished"></translation>
+        <translation>Stellen Sie die Lautstärke Ihrer Sprachausgabe ein</translation>
     </message>
     <message>
         <source>Notification on low battery</source>
-        <translation type="unfinished"></translation>
+        <translation>Benachrichtigung bei niedrigem Batteriestand</translation>
     </message>
     <message>
         <source>Fetch rate (seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrufrate (Sekunden)</translation>
     </message>
     <message>
         <source>Device battery</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerätebatterie</translation>
     </message>
     <message>
         <source>Charging</source>
-        <translation type="unfinished"></translation>
+        <translation>Laden</translation>
     </message>
 </context>
 <context>
     <name>IntroWindow</name>
     <message>
         <source>Automatic application update</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatische Anwendungsaktualisierung</translation>
     </message>
     <message>
         <source>Get Started</source>
-        <translation type="unfinished"></translation>
+        <translation>Loslegen</translation>
     </message>
     <message>
         <source>Automatic translations update</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatische Übersetzungsaktualisierung</translation>
     </message>
     <message>
         <source>Welcome to QontrolPanel!</source>
-        <translation type="unfinished"></translation>
+        <translation>Willkommen bei QontrolPanel!</translation>
     </message>
 </context>
 <context>
     <name>LabeledSwitch</name>
     <message>
         <source>On</source>
-        <translation type="unfinished"></translation>
+        <translation>An</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Aus</translation>
     </message>
 </context>
 <context>
     <name>LanguagePane</name>
     <message>
         <source>Application language</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendungssprache</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"></translation>
+        <translation>System</translation>
     </message>
     <message>
         <source>Translation author</source>
-        <translation type="unfinished"></translation>
+        <translation>Übersetzungsautor</translation>
     </message>
     <message>
         <source>Translation last updated</source>
-        <translation type="unfinished"></translation>
+        <translation>Übersetzung zuletzt aktualisiert</translation>
     </message>
     <message>
         <source>Update Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Übersetzungen aktualisieren</translation>
     </message>
     <message>
         <source>Download the latest translation files from GitHub</source>
-        <translation type="unfinished"></translation>
+        <translation>Laden Sie die neuesten Übersetzungsdateien von GitHub herunter</translation>
     </message>
     <message>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Herunterladen</translation>
     </message>
     <message>
         <source>Download completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>Download erfolgreich abgeschlossen!</translation>
     </message>
     <message>
         <source>Download failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Download fehlgeschlagen: %1</translation>
     </message>
     <message>
         <source>Error: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler: %1</translation>
     </message>
     <message>
         <source>Auto update translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Übersetzungen automatisch aktualisieren</translation>
     </message>
     <message>
         <source>Fetch for translations update at startup and every 4 hours</source>
-        <translation type="unfinished"></translation>
+        <translation>Beim Start und alle 4 Stunden nach Übersetzungsupdates suchen</translation>
     </message>
     <message>
         <source>Translation Progress</source>
-        <translation type="unfinished"></translation>
+        <translation>Übersetzungsfortschritt</translation>
     </message>
     <message>
         <source>Current language completion</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktueller Sprachfortschritt</translation>
     </message>
     <message>
         <source>Fetch for new translation to get data</source>
-        <translation type="unfinished"></translation>
+        <translation>Neue Übersetzung abrufen, um Daten zu erhalten</translation>
     </message>
     <message>
         <source>Unknown author</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannter Autor</translation>
     </message>
     <message>
         <source>Unknown date</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekanntes Datum</translation>
     </message>
 </context>
 <context>
     <name>Main</name>
     <message>
         <source>Update Available</source>
-        <translation type="unfinished"></translation>
+        <translation>Update verfügbar</translation>
     </message>
     <message>
         <source>Version %1 is available for download</source>
-        <translation type="unfinished"></translation>
+        <translation>Version %1 ist zum Download verfügbar</translation>
     </message>
     <message>
         <source>System sounds</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemklänge</translation>
     </message>
     <message>
         <source>ChatMix</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>Helligkeit</translation>
     </message>
 </context>
 <context>
     <name>MediaOverlay</name>
     <message>
         <source>No media playing</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Medienwiedergabe</translation>
     </message>
 </context>
 <context>
     <name>MediaOverlayPane</name>
     <message>
         <source>Media Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Medien-Overlay</translation>
     </message>
     <message>
         <source>Enable media overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Medien-Overlay aktivieren</translation>
     </message>
     <message>
         <source>Show a notification overlay when the currently playing song changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Benachrichtigungs-Overlay anzeigen, wenn das aktuell gespielte Lied wechselt</translation>
     </message>
     <message>
         <source>Overlay size</source>
-        <translation type="unfinished"></translation>
+        <translation>Overlay-Größe</translation>
     </message>
     <message>
         <source>Choose the size of the media overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Wählen Sie die Größe des Medien-Overlays</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"></translation>
+        <translation>Winzig</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Big</source>
-        <translation type="unfinished"></translation>
+        <translation>Groß</translation>
     </message>
     <message>
         <source>Overlay position</source>
-        <translation type="unfinished"></translation>
+        <translation>Overlay-Position</translation>
     </message>
     <message>
         <source>Choose where the media overlay appears on screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Wählen Sie, wo das Medien-Overlay auf dem Bildschirm erscheint</translation>
     </message>
     <message>
         <source>Top Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Oben links</translation>
     </message>
     <message>
         <source>Top Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Oben Mitte</translation>
     </message>
     <message>
         <source>Top Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Oben rechts</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Links</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechts</translation>
     </message>
     <message>
         <source>Bottom Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Unten links</translation>
     </message>
     <message>
         <source>Bottom Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Unten Mitte</translation>
     </message>
     <message>
         <source>Bottom Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Unten rechts</translation>
     </message>
 </context>
 <context>
     <name>PanelFooter</name>
     <message>
         <source>Update available</source>
-        <translation type="unfinished"></translation>
+        <translation>Update verfügbar</translation>
     </message>
 </context>
 <context>
     <name>PowerMenu</name>
     <message>
         <source>Sleep</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruhezustand</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruhezustand</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>Neustart</translation>
     </message>
     <message>
         <source>Restart UEFI</source>
-        <translation type="unfinished"></translation>
+        <translation>UEFI neu starten</translation>
     </message>
     <message>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Herunterfahren</translation>
     </message>
     <message>
         <source>Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Sperren</translation>
     </message>
     <message>
         <source>Sign Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Abmelden</translation>
     </message>
     <message>
         <source>Switch User</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzer wechseln</translation>
     </message>
 </context>
 <context>
     <name>SettingsWindow</name>
     <message>
         <source>QontrolPanel - Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>QontrolPanel - Einstellungen</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Erscheinungsbild</translation>
     </message>
     <message>
         <source>Media Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Medien-Overlay</translation>
     </message>
     <message>
         <source>ChatMix</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Tastenkombinationen</translation>
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprache</translation>
     </message>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Updates</translation>
     </message>
     <message>
         <source>HeadsetControl</source>
-        <translation type="unfinished"></translation>
+        <translation>HeadsetControl</translation>
     </message>
     <message>
         <source>Components</source>
-        <translation type="unfinished"></translation>
+        <translation>Komponenten</translation>
     </message>
     <message>
         <source>Renaming</source>
-        <translation type="unfinished"></translation>
+        <translation>Umbenennung</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"></translation>
+        <translation>Debug</translation>
     </message>
 </context>
 <context>
     <name>ShortcutsPane</name>
     <message>
         <source>Global Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Globale Tastenkombinationen</translation>
     </message>
     <message>
         <source>Enable global shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Globale Tastenkombinationen aktivieren</translation>
     </message>
     <message>
         <source>Allow QontrolPanel to respond to keyboard shortcuts globally</source>
-        <translation type="unfinished"></translation>
+        <translation>QontrolPanel darf global auf Tastenkombinationen reagieren</translation>
     </message>
     <message>
         <source>Notification on ChatMix toggle</source>
-        <translation type="unfinished"></translation>
+        <translation>Benachrichtigung beim Umschalten von ChatMix</translation>
     </message>
     <message>
         <source>Show/Hide Panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel anzeigen/verbergen</translation>
     </message>
     <message>
         <source>Shortcut to toggle the main panel visibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Tastenkombination zum Umschalten der Panel-Sichtbarkeit</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändern</translation>
     </message>
     <message>
         <source>Toggle ChatMix</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix umschalten</translation>
     </message>
     <message>
         <source>Shortcut to enable/disable ChatMix feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Tastenkombination zum Aktivieren/Deaktivieren von ChatMix</translation>
     </message>
     <message>
         <source>Toggle Microphone Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Mikrofon-Stummschaltung umschalten</translation>
     </message>
     <message>
         <source>Shortcut to mute/unmute microphone</source>
-        <translation type="unfinished"></translation>
+        <translation>Tastenkombination zum Stummschalten/Aktivieren des Mikrofons</translation>
     </message>
     <message>
         <source>Set Panel Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Panel-Tastenkombination festlegen</translation>
     </message>
     <message>
         <source>Set Microphone Mute Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Mikrofon-Stummschaltungs-Tastenkombination festlegen</translation>
     </message>
     <message>
         <source>Press the desired key combination</source>
-        <translation type="unfinished"></translation>
+        <translation>Drücken Sie die gewünschte Tastenkombination</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwenden</translation>
     </message>
     <message>
         <source>Set ChatMix Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>ChatMix-Tastenkombination festlegen</translation>
     </message>
 </context>
 <context>
     <name>SystemTray</name>
     <message>
         <source>Output: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ausgabe: </translation>
     </message>
     <message>
         <source>Input: </source>
-        <translation type="unfinished"></translation>
+        <translation>Eingabe: </translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished">Beenden</translation>
+        <translation>Beenden</translation>
     </message>
     <message>
         <source>Windows sound settings (Legacy)</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows-Soundeinstellungen (Legacy)</translation>
     </message>
     <message>
         <source>Windows sound settings (Modern)</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows-Soundeinstellungen (Modern)</translation>
     </message>
     <message>
         <source>QontrolPanel settings</source>
-        <translation type="unfinished"></translation>
+        <translation>QontrolPanel-Einstellungen</translation>
     </message>
 </context>
 <context>
     <name>Updater</name>
     <message>
         <source>Update available: </source>
-        <translation type="unfinished"></translation>
+        <translation>Update verfügbar: </translation>
     </message>
     <message>
         <source>You are using the latest version</source>
-        <translation type="unfinished"></translation>
+        <translation>Sie verwenden die neueste Version</translation>
     </message>
     <message>
         <source>Update started.</source>
-        <translation type="unfinished"></translation>
+        <translation>Update gestartet.</translation>
     </message>
     <message>
         <source>No translation files to download</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Übersetzungsdateien zum Herunterladen</translation>
     </message>
     <message>
         <source>All translations downloaded successfully</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle Übersetzungen wurden erfolgreich heruntergeladen</translation>
     </message>
     <message>
         <source>Downloaded %1 of %2 translation files</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 von %2 Übersetzungsdateien heruntergeladen</translation>
     </message>
 </context>
 </TS>
