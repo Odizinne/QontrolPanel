@@ -159,51 +159,45 @@ Rectangle {
                         return AudioBridge.getApplicationAudioLevel(individualAppLayout.model.appId)
                     }
                     opacity: AudioBridge.isApplicationLocked(individualAppLayout.model.name, individualAppLayout.model.streamIndex) ? 0.5 : (enabled ? 1 : 0.5)
-
                     onActiveFocusChanged: {
                         focus = false
                     }
-
                     Layout.fillWidth: true
-
                     value: {
                         if (pressed) {
                             return value
                         }
-
                         if (!UserSettings.chatMixEnabled) {
                             return individualAppLayout.model.volume
                         }
-
                         let appName = individualAppLayout.model.name
                         let isCommApp = AudioBridge.isCommApp(appName)
-
                         return isCommApp ? 100 : UserSettings.chatMixValue
                     }
-
                     ToolTip {
                         parent: volumeSlider.handle
                         visible: volumeSlider.pressed
                         text: Math.round(volumeSlider.value).toString()
                     }
-
                     onValueChanged: {
                         if (!UserSettings.chatMixEnabled && pressed) {
                             root.applicationVolumeChanged(individualAppLayout.model.appId, value)
                         }
                     }
-
                     onPressedChanged: {
                         if (!pressed && !UserSettings.chatMixEnabled) {
                             root.applicationVolumeChanged(individualAppLayout.model.appId, value)
                         }
-
                         if (!UserSettings.showAudioLevel) return
-
                         if (pressed) {
                             AudioBridge.stopApplicationAudioLevelMonitoring()
                         } else {
                             AudioBridge.startApplicationAudioLevelMonitoring()
+                        }
+                    }
+                    onWheelChanged: {
+                        if (!UserSettings.chatMixEnabled) {
+                            root.applicationVolumeChanged(individualAppLayout.model.appId, value)
                         }
                     }
                 }

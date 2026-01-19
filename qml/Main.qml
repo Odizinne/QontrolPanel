@@ -785,8 +785,6 @@ ApplicationWindow {
                                     from: 0
                                     to: 100
                                     Layout.fillWidth: true
-                                    //ToolTip.text: Math.round(value)
-                                    //ToolTip.visible: pressed
                                     audioLevel: AudioBridge.outputAudioLevel
                                     onValueChanged: {
                                         if (pressed) {
@@ -798,6 +796,9 @@ ApplicationWindow {
                                             AudioBridge.setOutputVolume(value)
                                             Utils.playFeedbackSound()
                                         }
+                                    }
+                                    onWheelChanged: {
+                                        AudioBridge.setOutputVolume(value)
                                     }
                                 }
                             }
@@ -859,17 +860,18 @@ ApplicationWindow {
                                     to: 100
                                     audioLevel: AudioBridge.inputAudioLevel
                                     Layout.fillWidth: true
-
                                     onValueChanged: {
                                         if (pressed) {
                                             AudioBridge.setInputVolume(value)
                                         }
                                     }
-
                                     onPressedChanged: {
                                         if (!pressed) {
                                             AudioBridge.setInputVolume(value)
                                         }
+                                    }
+                                    onWheelChanged: {
+                                        AudioBridge.setInputVolume(value)
                                     }
                                 }
                             }
@@ -998,15 +1000,18 @@ ApplicationWindow {
                                             audioLevel: appDelegateRoot.model.executableName !== "System sounds"
                                                         ? (appDelegateRoot.model.averageAudioLevel || 0)
                                                         : 0
-
                                             onValueChanged: {
                                                 if (!UserSettings.chatMixEnabled && pressed) {
                                                     AudioBridge.setExecutableVolume(appDelegateRoot.model.executableName, value)
                                                 }
                                             }
-
                                             onPressedChanged: {
                                                 if (!pressed && !UserSettings.chatMixEnabled) {
+                                                    AudioBridge.setExecutableVolume(appDelegateRoot.model.executableName, value)
+                                                }
+                                            }
+                                            onWheelChanged: {
+                                                if (!UserSettings.chatMixEnabled) {
                                                     AudioBridge.setExecutableVolume(appDelegateRoot.model.executableName, value)
                                                 }
                                             }
@@ -1178,7 +1183,7 @@ ApplicationWindow {
                                     Layout.rightMargin: 25
                                 }
 
-                                Slider {
+                                NFSlider {
                                     id: brightnessSlider
                                     from: 0
                                     to: 100
@@ -1190,6 +1195,11 @@ ApplicationWindow {
                                             MonitorManager.setDDCCIBrightness(Math.round(value), UserSettings.ddcciQueueDelay)
                                             UserSettings.ddcciBrightness = Math.round(value)
                                         }
+                                    }
+                                    onWheelChanged: {
+                                        MonitorManager.setWMIBrightness(Math.round(value))
+                                        MonitorManager.setDDCCIBrightness(Math.round(value), UserSettings.ddcciQueueDelay)
+                                        UserSettings.ddcciBrightness = Math.round(value)
                                     }
 
                                     ToolTip {

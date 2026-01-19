@@ -78,7 +78,7 @@ ColumnLayout {
                     Layout.fillWidth: true
                     title: qsTr("Microphone Sidetone")
                     description: qsTr("Adjust your voice feedback level")
-                    additionalControl: Slider {
+                    additionalControl: NFSlider {
                         from: 0
                         to: 128
                         value: UserSettings.headsetcontrolSidetone
@@ -87,6 +87,10 @@ ColumnLayout {
                                 UserSettings.headsetcontrolSidetone = Math.round(value)
                                 HeadsetControlBridge.setSidetone(Math.round(value))
                             }
+                        }
+                        onWheelChanged: {
+                            UserSettings.headsetcontrolSidetone = Math.round(value)
+                            HeadsetControlBridge.setSidetone(Math.round(value))
                         }
                     }
                 }

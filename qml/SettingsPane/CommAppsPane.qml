@@ -78,7 +78,7 @@ ColumnLayout {
                 description: qsTr("The volume to set for non communication applications when ChatMix is enabled")
                 enabled: UserSettings.chatMixEnabled
 
-                additionalControl: Slider {
+                additionalControl: NFSlider {
                     value: UserSettings.chatMixValue
                     from: 0
                     to: 100
@@ -106,7 +106,7 @@ ColumnLayout {
                 description: qsTr("The volume to set for applications when ChatMix is disabled")
                 enabled: UserSettings.chatMixEnabled
 
-                additionalControl: Slider {
+                additionalControl: NFSlider {
                     id: chatMixSlider
                     value: UserSettings.chatmixRestoreVolume
                     from: 0

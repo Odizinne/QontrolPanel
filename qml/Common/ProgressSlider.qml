@@ -7,7 +7,7 @@ import QtQuick.Controls.FluentWinUI3.impl as Impl
 import QtQuick.Templates as T
 import Odizinne.QontrolPanel
 
-Slider {
+NFSlider {
     id: control
     focusPolicy: Qt.NoFocus
 
