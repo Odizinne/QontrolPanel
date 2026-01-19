@@ -13,6 +13,7 @@ HeadsetControlMonitor::HeadsetControlMonitor(QObject *parent)
     , m_batteryStatus("BATTERY_UNAVAILABLE")
     , m_batteryLevel(-1)
     , m_anyDeviceFound(false)
+    , m_isFetching(false)
 {
     LOG_INFO("HeadsetControlManager",
                                     QString("HeadsetControlMonitor initialized - Library version: %1")
@@ -153,9 +154,11 @@ void HeadsetControlMonitor::setSidetone(int value)
 
 void HeadsetControlMonitor::fetchHeadsetInfo()
 {
-    if (!m_isMonitoring) {
+    if (!m_isMonitoring || m_isFetching) {
         return;
     }
+
+    m_isFetching = true;
 
     try {
         // Discover headsets
@@ -196,6 +199,8 @@ void HeadsetControlMonitor::fetchHeadsetInfo()
 
         emit headsetDataUpdated(m_cachedDevices);
     }
+
+    m_isFetching = false;
 }
 
 void HeadsetControlMonitor::updateDeviceCache()

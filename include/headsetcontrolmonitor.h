@@ -77,4 +77,5 @@ private:
     QString m_batteryStatus;
     int m_batteryLevel;
     bool m_anyDeviceFound;
+    bool m_isFetching;
 };
