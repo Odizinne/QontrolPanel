@@ -595,6 +595,10 @@ If you&apos;d like to support my work, any contribution would be greatly appreci
         <translation>QSS 将随系统启动时自动启动</translation>
     </message>
     <message>
+        <source>Slider wheel sensivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Normal</source>
         <translation>正常</translation>
     </message>

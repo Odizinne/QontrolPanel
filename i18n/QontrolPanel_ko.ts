@@ -596,6 +596,10 @@ If you&apos;d like to support my work, any contribution would be greatly appreci
         <translation>컴퓨터가 시작되면 QSS가 부팅됩니다</translation>
     </message>
     <message>
+        <source>Slider wheel sensivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Normal</source>
         <translation>일반</translation>
     </message>

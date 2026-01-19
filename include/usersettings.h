@@ -61,6 +61,8 @@ class UserSettings : public QObject
     Q_PROPERTY(int mediaOverlayPosition READ mediaOverlayPosition WRITE setMediaOverlayPosition NOTIFY mediaOverlayPositionChanged)
     Q_PROPERTY(int mediaOverlaySize READ mediaOverlaySize WRITE setMediaOverlaySize NOTIFY mediaOverlaySizeChanged)
 
+    Q_PROPERTY(int sliderWheelSensivity READ sliderWheelSensivity WRITE setSliderWheelSensivity NOTIFY sliderWheelSensivityChanged)
+
 public:
     static UserSettings* create(QQmlEngine *qmlEngine, QJSEngine *jsEngine);
     static UserSettings* instance();
@@ -117,6 +119,8 @@ public:
     int mediaOverlayPosition() const { return m_mediaOverlayPosition; }
     int mediaOverlaySize() const { return m_mediaOverlaySize; }
 
+    int sliderWheelSensivity() const { return m_sliderWheelSensivity; }
+
     // Setters
     void setEnableDeviceManager(bool value);
     void setEnableApplicationMixer(bool value);
@@ -169,6 +173,8 @@ public:
     void setMediaOverlayPosition(int value);
     void setMediaOverlaySize(int value);
 
+    void setSliderWheelSensivity(int value);
+
 signals:
     void enableDeviceManagerChanged();
     void enableApplicationMixerChanged();
@@ -220,6 +226,8 @@ signals:
     void enableMediaOverlayChanged();
     void mediaOverlayPositionChanged();
     void mediaOverlaySizeChanged();
+
+    void sliderWheelSensivityChanged();
 
 private:
     explicit UserSettings(QObject *parent = nullptr);
@@ -278,4 +286,6 @@ private:
     bool m_enableMediaOverlay;
     int m_mediaOverlayPosition;
     int m_mediaOverlaySize;
+
+    int m_sliderWheelSensivity;
 };

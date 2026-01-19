@@ -596,6 +596,10 @@ If you&apos;d like to support my work, any contribution would be greatly appreci
         <translation>コンピューターの起動時に QSS を起動します</translation>
     </message>
     <message>
+        <source>Slider wheel sensivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Normal</source>
         <translation>通常</translation>
     </message>

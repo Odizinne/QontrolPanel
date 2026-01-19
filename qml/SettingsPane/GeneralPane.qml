@@ -42,6 +42,17 @@ ColumnLayout {
 
             Card {
                 Layout.fillWidth: true
+                title: qsTr("Slider wheel sensivity")
+                additionalControl: SpinBox {
+                    from: 1
+                    to: 10
+                    value: UserSettings.sliderWheelSensivity
+                    onValueChanged: UserSettings.sliderWheelSensivity = value
+                }
+            }
+
+            Card {
+                Layout.fillWidth: true
                 title: qsTr("DDC/CI brightness update rate")
                 description: qsTr("Controls how frequently brightness commands are sent to external monitors")
                 additionalControl: CustomComboBox {

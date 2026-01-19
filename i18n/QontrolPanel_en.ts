@@ -595,6 +595,10 @@ If you&apos;d like to support my work, any contribution would be greatly appreci
         <translation></translation>
     </message>
     <message>
+        <source>Slider wheel sensivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>

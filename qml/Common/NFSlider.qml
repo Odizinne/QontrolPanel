@@ -10,8 +10,7 @@ Slider {
     WheelHandler {
         onWheel: (event) => {
             let delta = event.angleDelta.y / 120
-            let step = 2
-            slider.value += delta * step
+            slider.value += delta * UserSettings.sliderWheelSensivity
             slider.value = Math.max(slider.from, Math.min(slider.to, slider.value))
 
             slider.wheelChanged()

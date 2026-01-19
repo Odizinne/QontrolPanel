@@ -84,6 +84,8 @@ void UserSettings::initProperties()
     m_enableMediaOverlay = settings.value("enableMediaOverlay", false).toBool();
     m_mediaOverlayPosition = settings.value("mediaOverlayPosition", 1).toInt(); // Default: top-center
     m_mediaOverlaySize = settings.value("mediaOverlaySize", 1).toInt(); // Default: normal
+
+    m_sliderWheelSensivity = settings.value("sliderWheelSensivity", 2).toInt();
 }
 
 // Setters
@@ -471,5 +473,14 @@ void UserSettings::setMediaOverlaySize(int value)
         m_mediaOverlaySize = value;
         saveValue("mediaOverlaySize", value);
         emit mediaOverlaySizeChanged();
+    }
+}
+
+void UserSettings::setSliderWheelSensivity(int value)
+{
+    if (m_sliderWheelSensivity != value) {
+        m_sliderWheelSensivity = value;
+        saveValue("sliderWheelSensivity", value);
+        emit sliderWheelSensivityChanged();
     }
 }

@@ -614,6 +614,10 @@ Si vous souhaitez soutenir mon travail, toute contribution serait grandement app
         <translation>Lancer au démarrage</translation>
     </message>
     <message>
+        <source>Slider wheel sensivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Controls how frequently brightness commands are sent to external monitors</source>
         <translation>Contrôle la fréquence à laquelle les commandes de luminosité sont envoyées aux moniteurs externes</translation>
     </message>

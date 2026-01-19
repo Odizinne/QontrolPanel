@@ -596,6 +596,10 @@ Wenn Sie meine Arbeit unterstützen möchten, freue ich mich über jeden Beitrag
         <translation>QSS wird beim Start Ihres Computers gestartet</translation>
     </message>
     <message>
+        <source>Slider wheel sensivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>

@@ -600,6 +600,10 @@ Jeśli chcesz wesprzeć moją pracę, każda wpłata będzie bardzo mile widzian
         <translation>Pokaż potwierdzenie akcji zasilania</translation>
     </message>
     <message>
+        <source>Slider wheel sensivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>DDC/CI brightness update rate</source>
         <translation>Częstotliwość aktualizacji jasności DDC/CI</translation>
     </message>
