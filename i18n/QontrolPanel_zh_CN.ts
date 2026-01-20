@@ -798,6 +798,10 @@ You can enable it in the General tab.</source>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
+    <message>
+        <source>Battery</source>
+        <translation type="unfinished">电池</translation>
+    </message>
 </context>
 <context>
     <name>MediaOverlay</name>

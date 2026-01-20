@@ -799,6 +799,10 @@ You can enable it in the General tab.</source>
         <source>Brightness</source>
         <translation>明るさ</translation>
     </message>
+    <message>
+        <source>Battery</source>
+        <translation type="unfinished">バッテリー</translation>
+    </message>
 </context>
 <context>
     <name>MediaOverlay</name>

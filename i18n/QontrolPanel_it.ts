@@ -800,6 +800,10 @@ Puoi abilitarlo nella scheda Generale.</translation>
         <source>Brightness</source>
         <translation>Luminosità</translation>
     </message>
+    <message>
+        <source>Battery</source>
+        <translation type="unfinished">Batteria</translation>
+    </message>
 </context>
 <context>
     <name>MediaOverlay</name>

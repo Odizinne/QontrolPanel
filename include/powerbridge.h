@@ -3,8 +3,10 @@
 #include <QObject>
 #include <QQmlEngine>
 #include <QtQml/qqmlregistration.h>
+#include <QAbstractNativeEventFilter>
+#include <windows.h>
 
-class PowerBridge : public QObject
+class PowerBridge : public QObject, public QAbstractNativeEventFilter
 {
     Q_OBJECT
     QML_ELEMENT
@@ -46,6 +48,9 @@ public:
     int batteryLevel() const { return m_batteryLevel; }
     int batteryStatus() const { return m_batteryStatus; }
 
+    // QAbstractNativeEventFilter interface
+    bool nativeEventFilter(const QByteArray &eventType, void *message, qintptr *result) override;
+
 signals:
     void batteryLevelChanged();
     void batteryStatusChanged();
@@ -60,5 +65,6 @@ private:
 
     int m_batteryLevel;
     int m_batteryStatus;
-    HANDLE m_powerNotifyHandle;
+    HPOWERNOTIFY m_powerNotifyHandle;
+    HPOWERNOTIFY m_acNotifyHandle;
 };

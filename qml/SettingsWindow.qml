@@ -15,6 +15,18 @@ ApplicationWindow {
     transientParent: null
     title: qsTr("QontrolPanel - Settings")
 
+    ColumnLayout {
+
+        Label {
+            text: PowerBridge.batteryLevel
+        }
+
+        Label {
+            text: PowerBridge.batteryStatus
+        }
+    }
+
+
     function showUpdatePane() {
         show()
         if (sidebarList.currentIndex !== 9) {

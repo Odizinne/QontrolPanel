@@ -3,6 +3,8 @@
 #include <windows.h>
 #include <lm.h>
 #include <powrprof.h>
+#include <QGuiApplication>
+#include <QWindow>
 
 #define VARIABLE_ATTRIBUTE_NON_VOLATILE 0x00000001
 #define VARIABLE_ATTRIBUTE_BOOTSERVICE_ACCESS 0x00000002
@@ -14,14 +16,19 @@ PowerBridge::PowerBridge(QObject* parent)
     : QObject(parent)
     , m_batteryLevel(0)
     , m_batteryStatus(Unknown)
-    , m_powerNotifyHandle(NULL)
+    , m_powerNotifyHandle(nullptr)
+    , m_acNotifyHandle(nullptr)
 {
     updateBatteryStatus();
     startBatteryMonitoring();
+
+    // Install native event filter
+    qApp->installNativeEventFilter(this);
 }
 
 PowerBridge::~PowerBridge()
 {
+    qApp->removeNativeEventFilter(this);
     stopBatteryMonitoring();
     if (m_instance == this) {
         m_instance = nullptr;
@@ -44,6 +51,35 @@ PowerBridge* PowerBridge::instance()
     return m_instance;
 }
 
+bool PowerBridge::nativeEventFilter(const QByteArray &eventType, void *message, qintptr *result)
+{
+    Q_UNUSED(result)
+
+    if (eventType == "windows_generic_MSG" || eventType == "windows_dispatcher_MSG") {
+        MSG* msg = static_cast<MSG*>(message);
+
+        if (msg->message == WM_POWERBROADCAST) {
+            if (msg->wParam == PBT_APMPOWERSTATUSCHANGE) {
+                LOG_INFO("PowerManager", "Power status changed (PBT_APMPOWERSTATUSCHANGE)");
+                updateBatteryStatus();
+            } else if (msg->wParam == PBT_POWERSETTINGCHANGE) {
+                POWERBROADCAST_SETTING* setting = reinterpret_cast<POWERBROADCAST_SETTING*>(msg->lParam);
+                if (setting) {
+                    if (IsEqualGUID(setting->PowerSetting, GUID_BATTERY_PERCENTAGE_REMAINING)) {
+                        LOG_INFO("PowerManager", "Battery percentage changed");
+                        updateBatteryStatus();
+                    } else if (IsEqualGUID(setting->PowerSetting, GUID_ACDC_POWER_SOURCE)) {
+                        LOG_INFO("PowerManager", "AC/DC power source changed");
+                        updateBatteryStatus();
+                    }
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
 void PowerBridge::updateBatteryStatus()
 {
     SYSTEM_POWER_STATUS powerStatus;
@@ -53,7 +89,7 @@ void PowerBridge::updateBatteryStatus()
         if (powerStatus.BatteryLifePercent != 255) {
             newLevel = powerStatus.BatteryLifePercent;
         }
-        
+
         if (newLevel != m_batteryLevel) {
             m_batteryLevel = newLevel;
             emit batteryLevelChanged();
@@ -92,53 +128,67 @@ void PowerBridge::updateBatteryStatus()
             emit batteryStatusChanged();
         }
 
-        LOG_INFO("PowerManager", 
+        LOG_INFO("PowerManager",
                  QString("Battery: %1%, Status: %2, ACLine: %3, BatteryFlag: %4")
                      .arg(m_batteryLevel)
                      .arg(m_batteryStatus)
                      .arg(powerStatus.ACLineStatus)
                      .arg(powerStatus.BatteryFlag));
     } else {
-        LOG_ERROR("PowerManager", "Failed to get system power status");
+        LOG_CRITICAL("PowerManager", "Failed to get system power status");
     }
-}
-
-static ULONG CALLBACK PowerSettingCallback(PVOID Context, ULONG Type, PVOID Setting)
-{
-    Q_UNUSED(Type)
-    Q_UNUSED(Setting)
-    
-    PowerBridge* bridge = static_cast<PowerBridge*>(Context);
-    if (bridge) {
-        bridge->updateBatteryStatus();
-    }
-    return 0;
 }
 
 void PowerBridge::startBatteryMonitoring()
 {
-    // Register for power setting notifications
+    // Get the main window handle
+    HWND hwnd = nullptr;
+
+    // Try to get window from QGuiApplication
+    QWindowList windows = QGuiApplication::topLevelWindows();
+    if (!windows.isEmpty()) {
+        hwnd = reinterpret_cast<HWND>(windows.first()->winId());
+    }
+
+    if (!hwnd) {
+        // Fallback: use console window or create a message-only window
+        hwnd = GetConsoleWindow();
+        if (!hwnd) {
+            LOG_CRITICAL("PowerManager", "No window handle available for power notifications");
+            return;
+        }
+    }
+
+    LOG_INFO("PowerManager", QString("Using window handle: %1").arg(reinterpret_cast<quintptr>(hwnd)));
+
+    // Register for battery percentage changes
     m_powerNotifyHandle = RegisterPowerSettingNotification(
-        GetCurrentProcess(),
+        hwnd,
         &GUID_BATTERY_PERCENTAGE_REMAINING,
-        DEVICE_NOTIFY_CALLBACK
-    );
+        DEVICE_NOTIFY_WINDOW_HANDLE
+        );
 
     if (m_powerNotifyHandle) {
-        LOG_INFO("PowerManager", "Battery monitoring started successfully");
+        LOG_INFO("PowerManager", "Battery percentage monitoring started successfully");
     } else {
-        LOG_ERROR("PowerManager", "Failed to register for power notifications");
+        LOG_CRITICAL("PowerManager",
+                     QString("Failed to register for battery notifications, error: %1")
+                         .arg(GetLastError()));
     }
 
     // Also register for AC/DC power source changes
-    HANDLE acNotifyHandle = RegisterPowerSettingNotification(
-        GetCurrentProcess(),
+    m_acNotifyHandle = RegisterPowerSettingNotification(
+        hwnd,
         &GUID_ACDC_POWER_SOURCE,
-        DEVICE_NOTIFY_CALLBACK
-    );
-    
-    if (!acNotifyHandle) {
-        LOG_ERROR("PowerManager", "Failed to register for AC/DC power notifications");
+        DEVICE_NOTIFY_WINDOW_HANDLE
+        );
+
+    if (m_acNotifyHandle) {
+        LOG_INFO("PowerManager", "AC/DC power monitoring started successfully");
+    } else {
+        LOG_CRITICAL("PowerManager",
+                     QString("Failed to register for AC/DC notifications, error: %1")
+                         .arg(GetLastError()));
     }
 }
 
@@ -146,9 +196,15 @@ void PowerBridge::stopBatteryMonitoring()
 {
     if (m_powerNotifyHandle) {
         UnregisterPowerSettingNotification(m_powerNotifyHandle);
-        m_powerNotifyHandle = NULL;
-        LOG_INFO("PowerManager", "Battery monitoring stopped");
+        m_powerNotifyHandle = nullptr;
     }
+
+    if (m_acNotifyHandle) {
+        UnregisterPowerSettingNotification(m_acNotifyHandle);
+        m_acNotifyHandle = nullptr;
+    }
+
+    LOG_INFO("PowerManager", "Battery monitoring stopped");
 }
 
 bool PowerBridge::enableShutdownPrivilege()

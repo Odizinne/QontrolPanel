@@ -798,6 +798,10 @@ You can enable it in the General tab.</source>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Battery</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MediaOverlay</name>

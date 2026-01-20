@@ -520,7 +520,8 @@ ApplicationWindow {
                                UserSettings.enableDeviceManager,
                                UserSettings.enableApplicationMixer && AudioBridge.isReady && AudioBridge.applications.rowCount() > 0,
                                UserSettings.activateChatmix,
-                               UserSettings.allowBrightnessControl && MonitorManager.monitorDetected
+                               UserSettings.allowBrightnessControl && MonitorManager.monitorDetected,
+                               PowerBridge.batteryStatus !== 4
                            ]
         if (!visibilities[currentLayoutIndex]) return false
         for (let i = 0; i < currentLayoutIndex; i++) {
@@ -1208,6 +1209,58 @@ ApplicationWindow {
                                         delay: brightnessSlider.pressed ? 0 : 1000
                                         text: Math.round(brightnessSlider.value).toString()
                                     }
+                                }
+                            }
+                        }
+                    }
+
+                    Rectangle {
+                        id: brightnessLayoutSeparator
+                        visible: panel.shouldShowSeparator(4)
+                        Layout.preferredHeight: 1
+                        Layout.fillWidth: true
+                        color: Constants.separatorColor
+                        opacity: 0.15
+                        Layout.rightMargin: -14
+                        Layout.leftMargin: -14
+                    }
+
+                    ColumnLayout {
+                        id: batteryLayout
+                        visible: PowerBridge.batteryStatus !== 4
+                        spacing: 5
+
+                        RowLayout {
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: 40
+                            spacing: 0
+
+                            NFToolButton {
+                                Layout.preferredWidth: 40
+                                Layout.preferredHeight: 40
+                                //text: PowerBridge.batteryStatus
+                                icon.source: Constants.getInternalBatteryIcon(PowerBridge.batteryLevel)
+                                //icon.source: MonitorManager.nightLightEnabled ? "qrc:/icons/nightlight.svg" : "qrc:/icons/brightness.svg"
+                                icon.width: 16
+                                icon.height: 16
+                            }
+
+                            ColumnLayout {
+                                spacing: 7
+                                Layout.topMargin: -8
+                                Label {
+                                    opacity: 1
+                                    text: qsTr("Battery") + " (" + PowerBridge.batteryLevel + "%)"
+                                    Layout.leftMargin: 18
+                                    Layout.rightMargin: 25
+                                }
+
+                                CustomProgressBar {
+                                    id: batteryBar
+                                    from: 0
+                                    to: 100
+                                    value: PowerBridge.batteryLevel
+                                    Layout.fillWidth: true
                                 }
                             }
                         }

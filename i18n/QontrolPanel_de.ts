@@ -800,6 +800,10 @@ Sie können sie auf der Registerkarte „Allgemein“ aktivieren.</translation>
         <source>Brightness</source>
         <translation>Helligkeit</translation>
     </message>
+    <message>
+        <source>Battery</source>
+        <translation type="unfinished">Batterie</translation>
+    </message>
 </context>
 <context>
     <name>MediaOverlay</name>

@@ -796,6 +796,10 @@ Vous pouvez l&apos;activer dans l&apos;onglet Général.</translation>
         <translation>Luminosité</translation>
     </message>
     <message>
+        <source>Battery</source>
+        <translation type="unfinished">Batterie</translation>
+    </message>
+    <message>
         <source>Update Available</source>
         <translation>Mise à jour disponible</translation>
     </message>

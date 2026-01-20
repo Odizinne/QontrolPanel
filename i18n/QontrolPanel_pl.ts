@@ -800,6 +800,10 @@ Można ją włączyć w zakładce Ogólne.</translation>
         <source>Brightness</source>
         <translation>Jasność</translation>
     </message>
+    <message>
+        <source>Battery</source>
+        <translation type="unfinished">Bateria</translation>
+    </message>
 </context>
 <context>
     <name>MediaOverlay</name>

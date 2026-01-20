@@ -800,6 +800,10 @@ You can enable it in the General tab.</source>
         <source>Brightness</source>
         <translation>밝기</translation>
     </message>
+    <message>
+        <source>Battery</source>
+        <translation type="unfinished">배터리</translation>
+    </message>
 </context>
 <context>
     <name>MediaOverlay</name>
