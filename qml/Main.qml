@@ -521,7 +521,7 @@ ApplicationWindow {
                                UserSettings.enableApplicationMixer && AudioBridge.isReady && AudioBridge.applications.rowCount() > 0,
                                UserSettings.activateChatmix,
                                UserSettings.allowBrightnessControl && MonitorManager.monitorDetected,
-                               PowerBridge.batteryStatus !== 4
+                               PowerBridge.batteryStatus !== 3
                            ]
         if (!visibilities[currentLayoutIndex]) return false
         for (let i = 0; i < currentLayoutIndex; i++) {
@@ -1227,7 +1227,7 @@ ApplicationWindow {
 
                     ColumnLayout {
                         id: batteryLayout
-                        visible: PowerBridge.batteryStatus !== 4
+                        visible: PowerBridge.batteryStatus !== 3
                         spacing: 5
 
                         RowLayout {
