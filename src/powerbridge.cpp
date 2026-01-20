@@ -10,16 +10,22 @@
 #define VARIABLE_ATTRIBUTE_BOOTSERVICE_ACCESS 0x00000002
 #define VARIABLE_ATTRIBUTE_RUNTIME_ACCESS 0x00000004
 
+// Battery saver status GUID
+DEFINE_GUID(GUID_POWER_SAVING_STATUS, 0xE00958C0, 0xC213, 0x4ACE, 0xAC, 0x77, 0xFE, 0xCC, 0xED, 0x2E, 0xEE, 0xA5);
+
 PowerBridge* PowerBridge::m_instance = nullptr;
 
 PowerBridge::PowerBridge(QObject* parent)
     : QObject(parent)
     , m_batteryLevel(0)
     , m_batteryStatus(Unknown)
+    , m_batterySaverEnabled(false)
     , m_powerNotifyHandle(nullptr)
     , m_acNotifyHandle(nullptr)
+    , m_batterySaverNotifyHandle(nullptr)
 {
     updateBatteryStatus();
+    updateBatterySaverStatus();
     startBatteryMonitoring();
 
     // Install native event filter
@@ -71,6 +77,9 @@ bool PowerBridge::nativeEventFilter(const QByteArray &eventType, void *message, 
                     } else if (IsEqualGUID(setting->PowerSetting, GUID_ACDC_POWER_SOURCE)) {
                         LOG_INFO("PowerManager", "AC/DC power source changed");
                         updateBatteryStatus();
+                    } else if (IsEqualGUID(setting->PowerSetting, GUID_POWER_SAVING_STATUS)) {
+                        LOG_INFO("PowerManager", "Battery saver status changed");
+                        updateBatterySaverStatus();
                     }
                 }
             }
@@ -139,6 +148,46 @@ void PowerBridge::updateBatteryStatus()
     }
 }
 
+void PowerBridge::updateBatterySaverStatus()
+{
+    SYSTEM_POWER_STATUS powerStatus;
+    if (GetSystemPowerStatus(&powerStatus)) {
+        // Battery saver is enabled when BatterySaver flag (bit 9) is set
+        bool newStatus = (powerStatus.BatteryFlag & 0x00000200) != 0;
+
+        if (newStatus != m_batterySaverEnabled) {
+            m_batterySaverEnabled = newStatus;
+            emit batterySaverEnabledChanged();
+            LOG_INFO("PowerManager",
+                     QString("Battery saver status changed: %1").arg(newStatus ? "enabled" : "disabled"));
+        }
+    } else {
+        LOG_CRITICAL("PowerManager", "Failed to get battery saver status");
+    }
+}
+
+void PowerBridge::setBatterySaver(bool enable)
+{
+    // Use the Power Saver power scheme GUID
+    GUID powerSaverGuid = {0xa1841308, 0x3541, 0x4fab, {0xbc, 0x81, 0xf7, 0x15, 0x56, 0xf2, 0x0b, 0x4a}};
+    // Balanced scheme GUID
+    GUID balancedGuid = {0x381b4222, 0xf694, 0x41f0, {0x96, 0x85, 0xff, 0x5b, 0x56, 0xb7, 0x84, 0x96}};
+
+    GUID* targetScheme = enable ? &powerSaverGuid : &balancedGuid;
+
+    DWORD result = PowerSetActiveScheme(NULL, targetScheme);
+
+    if (result == ERROR_SUCCESS) {
+        LOG_INFO("PowerManager",
+                 QString("Battery saver %1 successfully").arg(enable ? "enabled" : "disabled"));
+        // Update status will be triggered by the notification
+        updateBatterySaverStatus();
+    } else {
+        LOG_CRITICAL("PowerManager",
+                     QString("Failed to set battery saver, error: %1").arg(result));
+    }
+}
+
 void PowerBridge::startBatteryMonitoring()
 {
     // Get the main window handle
@@ -190,6 +239,21 @@ void PowerBridge::startBatteryMonitoring()
                      QString("Failed to register for AC/DC notifications, error: %1")
                          .arg(GetLastError()));
     }
+
+    // Register for battery saver status changes
+    m_batterySaverNotifyHandle = RegisterPowerSettingNotification(
+        hwnd,
+        &GUID_POWER_SAVING_STATUS,
+        DEVICE_NOTIFY_WINDOW_HANDLE
+        );
+
+    if (m_batterySaverNotifyHandle) {
+        LOG_INFO("PowerManager", "Battery saver monitoring started successfully");
+    } else {
+        LOG_CRITICAL("PowerManager",
+                     QString("Failed to register for battery saver notifications, error: %1")
+                         .arg(GetLastError()));
+    }
 }
 
 void PowerBridge::stopBatteryMonitoring()
@@ -202,6 +266,11 @@ void PowerBridge::stopBatteryMonitoring()
     if (m_acNotifyHandle) {
         UnregisterPowerSettingNotification(m_acNotifyHandle);
         m_acNotifyHandle = nullptr;
+    }
+
+    if (m_batterySaverNotifyHandle) {
+        UnregisterPowerSettingNotification(m_batterySaverNotifyHandle);
+        m_batterySaverNotifyHandle = nullptr;
     }
 
     LOG_INFO("PowerManager", "Battery monitoring stopped");

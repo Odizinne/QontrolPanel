@@ -1238,11 +1238,12 @@ ApplicationWindow {
                             NFToolButton {
                                 Layout.preferredWidth: 40
                                 Layout.preferredHeight: 40
-                                //text: PowerBridge.batteryStatus
                                 icon.source: Constants.getInternalBatteryIcon(PowerBridge.batteryLevel)
-                                //icon.source: MonitorManager.nightLightEnabled ? "qrc:/icons/nightlight.svg" : "qrc:/icons/brightness.svg"
+                                checkable: true
+                                checked: PowerBridge.batterySaverEnabled
                                 icon.width: 16
                                 icon.height: 16
+                                onClicked: PowerBridge.setBatterySaver(!PowerBridge.batterySaverEnabled)
                             }
 
                             ColumnLayout {
@@ -1250,7 +1251,24 @@ ApplicationWindow {
                                 Layout.topMargin: -8
                                 Label {
                                     opacity: 1
-                                    text: qsTr("Battery") + " (" + PowerBridge.batteryLevel + "%)"
+                                    text: {
+                                        const level = PowerBridge.batteryLevel;
+                                        const status = PowerBridge.batteryStatus;
+
+                                        switch(status) {
+                                            case PowerBridge.Charging:
+                                                return qsTr("Battery Charging") + " (" + level + "%)";
+                                            case PowerBridge.Discharging:
+                                                return qsTr("Battery") + " (" + level + "%)";
+                                            case PowerBridge.NotPresent:
+                                                return qsTr("No Battery Detected");
+                                            case PowerBridge.ACPower:
+                                                return qsTr("Running on AC Power");
+                                            case PowerBridge.Unknown:
+                                            default:
+                                                return qsTr("Battery Status Unknown");
+                                        }
+                                    }
                                     Layout.leftMargin: 18
                                     Layout.rightMargin: 25
                                 }
@@ -1259,6 +1277,7 @@ ApplicationWindow {
                                     id: batteryBar
                                     from: 0
                                     to: 100
+                                    loading: PowerBridge.batteryStatus === 2
                                     value: PowerBridge.batteryLevel
                                     Layout.fillWidth: true
                                 }
