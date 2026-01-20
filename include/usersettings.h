@@ -63,6 +63,8 @@ class UserSettings : public QObject
 
     Q_PROPERTY(int sliderWheelSensivity READ sliderWheelSensivity WRITE setSliderWheelSensivity NOTIFY sliderWheelSensivityChanged)
 
+    Q_PROPERTY(bool enableInternalBattery READ enableInternalBattery WRITE setEnableInternalBattery NOTIFY enableInternalBatteryChanged)
+
 public:
     static UserSettings* create(QQmlEngine *qmlEngine, QJSEngine *jsEngine);
     static UserSettings* instance();
@@ -121,6 +123,8 @@ public:
 
     int sliderWheelSensivity() const { return m_sliderWheelSensivity; }
 
+    bool enableInternalBattery() const { return m_enableInternalBattery; }
+
     // Setters
     void setEnableDeviceManager(bool value);
     void setEnableApplicationMixer(bool value);
@@ -175,6 +179,8 @@ public:
 
     void setSliderWheelSensivity(int value);
 
+    void setEnableInternalBattery(bool value);
+
 signals:
     void enableDeviceManagerChanged();
     void enableApplicationMixerChanged();
@@ -228,6 +234,8 @@ signals:
     void mediaOverlaySizeChanged();
 
     void sliderWheelSensivityChanged();
+
+    void enableInternalBatteryChanged();
 
 private:
     explicit UserSettings(QObject *parent = nullptr);
@@ -288,4 +296,6 @@ private:
     int m_mediaOverlaySize;
 
     int m_sliderWheelSensivity;
+
+    bool m_enableInternalBattery;
 };

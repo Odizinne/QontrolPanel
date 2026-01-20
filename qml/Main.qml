@@ -521,7 +521,7 @@ ApplicationWindow {
                                UserSettings.enableApplicationMixer && AudioBridge.isReady && AudioBridge.applications.rowCount() > 0,
                                UserSettings.activateChatmix,
                                UserSettings.allowBrightnessControl && MonitorManager.monitorDetected,
-                               PowerBridge.batteryStatus !== 3
+                               PowerBridge.batteryStatus !== 3 && UserSettings.enableInternalBattery
                            ]
         if (!visibilities[currentLayoutIndex]) return false
         for (let i = 0; i < currentLayoutIndex; i++) {

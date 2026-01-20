@@ -86,6 +86,8 @@ void UserSettings::initProperties()
     m_mediaOverlaySize = settings.value("mediaOverlaySize", 1).toInt(); // Default: normal
 
     m_sliderWheelSensivity = settings.value("sliderWheelSensivity", 2).toInt();
+
+    m_enableInternalBattery = settings.value("enableInternalBattery", true).toBool();
 }
 
 // Setters
@@ -482,5 +484,14 @@ void UserSettings::setSliderWheelSensivity(int value)
         m_sliderWheelSensivity = value;
         saveValue("sliderWheelSensivity", value);
         emit sliderWheelSensivityChanged();
+    }
+}
+
+void UserSettings::setEnableInternalBattery(bool value)
+{
+    if (m_enableInternalBattery != value) {
+        m_enableInternalBattery = value;
+        saveValue("enableInternalBattery", value);
+        emit enableInternalBatteryChanged();
     }
 }

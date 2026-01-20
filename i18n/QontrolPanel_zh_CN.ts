@@ -314,6 +314,14 @@
         <source>Display currently playing media from Windows known sources</source>
         <translation type="unfinished">显示Windows识别的当前播放媒体信息</translation>
     </message>
+    <message>
+        <source>Enable internal battery display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display system battery if available</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConfirmPowerActionDialog</name>

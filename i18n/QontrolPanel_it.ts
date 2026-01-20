@@ -314,6 +314,14 @@
         <source>Display currently playing media from Windows known sources</source>
         <translation>Visualizza media in riproduzione da fonti Windows conosciute</translation>
     </message>
+    <message>
+        <source>Enable internal battery display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display system battery if available</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConfirmPowerActionDialog</name>
