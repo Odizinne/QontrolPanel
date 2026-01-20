@@ -1227,7 +1227,7 @@ ApplicationWindow {
 
                     ColumnLayout {
                         id: batteryLayout
-                        visible: PowerBridge.batteryStatus !== 3
+                        visible: PowerBridge.batteryStatus !== 3 && UserSettings.enableInternalBattery
                         spacing: 5
 
                         RowLayout {
