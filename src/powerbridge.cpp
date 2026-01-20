@@ -12,12 +12,17 @@ PowerBridge* PowerBridge::m_instance = nullptr;
 
 PowerBridge::PowerBridge(QObject* parent)
     : QObject(parent)
+    , m_batteryLevel(0)
+    , m_batteryStatus(Unknown)
+    , m_powerNotifyHandle(NULL)
 {
-
+    updateBatteryStatus();
+    startBatteryMonitoring();
 }
 
 PowerBridge::~PowerBridge()
 {
+    stopBatteryMonitoring();
     if (m_instance == this) {
         m_instance = nullptr;
     }
@@ -37,6 +42,113 @@ PowerBridge* PowerBridge::create(QQmlEngine* qmlEngine, QJSEngine* jsEngine)
 PowerBridge* PowerBridge::instance()
 {
     return m_instance;
+}
+
+void PowerBridge::updateBatteryStatus()
+{
+    SYSTEM_POWER_STATUS powerStatus;
+    if (GetSystemPowerStatus(&powerStatus)) {
+        // Update battery level
+        int newLevel = 0;
+        if (powerStatus.BatteryLifePercent != 255) {
+            newLevel = powerStatus.BatteryLifePercent;
+        }
+        
+        if (newLevel != m_batteryLevel) {
+            m_batteryLevel = newLevel;
+            emit batteryLevelChanged();
+        }
+
+        // Update battery status
+        int newStatus = Unknown;
+        if (powerStatus.BatteryFlag == 128) {
+            // No system battery
+            newStatus = NotPresent;
+        } else if (powerStatus.BatteryFlag == 255) {
+            // Unknown status
+            newStatus = Unknown;
+        } else if (powerStatus.ACLineStatus == 1) {
+            // AC power online
+            if (powerStatus.BatteryFlag & 8) {
+                // Charging
+                newStatus = Charging;
+            } else if (powerStatus.BatteryFlag == 128 || powerStatus.BatteryFlag == 255) {
+                // No battery present
+                newStatus = ACPower;
+            } else {
+                // On AC but fully charged or not charging
+                newStatus = Charging;
+            }
+        } else if (powerStatus.ACLineStatus == 0) {
+            // AC power offline - discharging
+            newStatus = Discharging;
+        } else {
+            // Unknown AC status
+            newStatus = Unknown;
+        }
+
+        if (newStatus != m_batteryStatus) {
+            m_batteryStatus = newStatus;
+            emit batteryStatusChanged();
+        }
+
+        LOG_INFO("PowerManager", 
+                 QString("Battery: %1%, Status: %2, ACLine: %3, BatteryFlag: %4")
+                     .arg(m_batteryLevel)
+                     .arg(m_batteryStatus)
+                     .arg(powerStatus.ACLineStatus)
+                     .arg(powerStatus.BatteryFlag));
+    } else {
+        LOG_ERROR("PowerManager", "Failed to get system power status");
+    }
+}
+
+static ULONG CALLBACK PowerSettingCallback(PVOID Context, ULONG Type, PVOID Setting)
+{
+    Q_UNUSED(Type)
+    Q_UNUSED(Setting)
+    
+    PowerBridge* bridge = static_cast<PowerBridge*>(Context);
+    if (bridge) {
+        bridge->updateBatteryStatus();
+    }
+    return 0;
+}
+
+void PowerBridge::startBatteryMonitoring()
+{
+    // Register for power setting notifications
+    m_powerNotifyHandle = RegisterPowerSettingNotification(
+        GetCurrentProcess(),
+        &GUID_BATTERY_PERCENTAGE_REMAINING,
+        DEVICE_NOTIFY_CALLBACK
+    );
+
+    if (m_powerNotifyHandle) {
+        LOG_INFO("PowerManager", "Battery monitoring started successfully");
+    } else {
+        LOG_ERROR("PowerManager", "Failed to register for power notifications");
+    }
+
+    // Also register for AC/DC power source changes
+    HANDLE acNotifyHandle = RegisterPowerSettingNotification(
+        GetCurrentProcess(),
+        &GUID_ACDC_POWER_SOURCE,
+        DEVICE_NOTIFY_CALLBACK
+    );
+    
+    if (!acNotifyHandle) {
+        LOG_ERROR("PowerManager", "Failed to register for AC/DC power notifications");
+    }
+}
+
+void PowerBridge::stopBatteryMonitoring()
+{
+    if (m_powerNotifyHandle) {
+        UnregisterPowerSettingNotification(m_powerNotifyHandle);
+        m_powerNotifyHandle = NULL;
+        LOG_INFO("PowerManager", "Battery monitoring stopped");
+    }
 }
 
 bool PowerBridge::enableShutdownPrivilege()
@@ -76,9 +188,7 @@ bool PowerBridge::hasMultipleUsers()
                  QString("Found %1 user accounts, analyzing...").arg(entriesRead));
 
         for (DWORD i = 0; i < entriesRead; i++) {
-            // Skip built-in system accounts
             QString username = QString::fromWCharArray(buffer[i].usri1_name);
-            // Skip common system accounts
             if (username.compare("Administrator", Qt::CaseInsensitive) != 0 &&
                 username.compare("Guest", Qt::CaseInsensitive) != 0 &&
                 username.compare("DefaultAccount", Qt::CaseInsensitive) != 0 &&
@@ -139,7 +249,6 @@ void PowerBridge::restartToUEFI()
         return;
     }
 
-    // Launch elevated shutdown command via ShellExecute
     ShellExecuteW(NULL, L"runas", L"shutdown", L"/r /fw /t 0", NULL, SW_HIDE);
 }
 

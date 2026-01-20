@@ -10,7 +10,19 @@ class PowerBridge : public QObject
     QML_ELEMENT
     QML_SINGLETON
 
+    Q_PROPERTY(int batteryLevel READ batteryLevel NOTIFY batteryLevelChanged)
+    Q_PROPERTY(int batteryStatus READ batteryStatus NOTIFY batteryStatusChanged)
+
 public:
+    enum BatteryStatus {
+        Unknown = 0,
+        Discharging = 1,
+        Charging = 2,
+        NotPresent = 3,
+        ACPower = 4  // No battery, running on AC
+    };
+    Q_ENUM(BatteryStatus)
+
     explicit PowerBridge(QObject* parent = nullptr);
     ~PowerBridge() override;
 
@@ -31,9 +43,22 @@ public:
     Q_INVOKABLE bool switchAccount();
     Q_INVOKABLE void restartToUEFI();
 
+    int batteryLevel() const { return m_batteryLevel; }
+    int batteryStatus() const { return m_batteryStatus; }
+
+signals:
+    void batteryLevelChanged();
+    void batteryStatusChanged();
+
 private:
     static PowerBridge* m_instance;
 
     bool enableShutdownPrivilege();
-};
+    void updateBatteryStatus();
+    void startBatteryMonitoring();
+    void stopBatteryMonitoring();
 
+    int m_batteryLevel;
+    int m_batteryStatus;
+    HANDLE m_powerNotifyHandle;
+};
