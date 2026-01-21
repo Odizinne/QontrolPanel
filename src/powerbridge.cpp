@@ -10,8 +10,13 @@
 #define VARIABLE_ATTRIBUTE_BOOTSERVICE_ACCESS 0x00000002
 #define VARIABLE_ATTRIBUTE_RUNTIME_ACCESS 0x00000004
 
-// Battery saver status GUID
 DEFINE_GUID(GUID_POWER_SAVING_STATUS, 0xE00958C0, 0xC213, 0x4ACE, 0xAC, 0x77, 0xFE, 0xCC, 0xED, 0x2E, 0xEE, 0xA5);
+
+// Battery Saver overlay scheme GUID
+static const GUID GUID_BATTERY_SAVER_OVERLAY = {0x961cc777, 0x2547, 0x4f9d, {0x81, 0x74, 0x7d, 0x86, 0x18, 0x1b, 0x8a, 0x7a}};
+
+// Dynamic function loading for PowerSetActiveOverlayScheme
+typedef DWORD (WINAPI *PowerSetActiveOverlaySchemeProc)(const GUID*);
 
 PowerBridge* PowerBridge::m_instance = nullptr;
 
@@ -152,8 +157,9 @@ void PowerBridge::updateBatterySaverStatus()
 {
     SYSTEM_POWER_STATUS powerStatus;
     if (GetSystemPowerStatus(&powerStatus)) {
-        // Battery saver is enabled when BatterySaver flag (bit 9) is set
-        bool newStatus = (powerStatus.BatteryFlag & 0x00000200) != 0;
+        // SystemStatusFlag indicates if Battery Saver is on
+        // Non-zero means Battery Saver is ON
+        bool newStatus = (powerStatus.SystemStatusFlag != 0);
 
         if (newStatus != m_batterySaverEnabled) {
             m_batterySaverEnabled = newStatus;
@@ -168,19 +174,36 @@ void PowerBridge::updateBatterySaverStatus()
 
 void PowerBridge::setBatterySaver(bool enable)
 {
-    // Use the Power Saver power scheme GUID
-    GUID powerSaverGuid = {0xa1841308, 0x3541, 0x4fab, {0xbc, 0x81, 0xf7, 0x15, 0x56, 0xf2, 0x0b, 0x4a}};
-    // Balanced scheme GUID
-    GUID balancedGuid = {0x381b4222, 0xf694, 0x41f0, {0x96, 0x85, 0xff, 0x5b, 0x56, 0xb7, 0x84, 0x96}};
+    // Load the function dynamically for compatibility
+    HMODULE hPowrProf = LoadLibraryW(L"powrprof.dll");
+    if (!hPowrProf) {
+        LOG_CRITICAL("PowerManager", "Failed to load powrprof.dll");
+        return;
+    }
 
-    GUID* targetScheme = enable ? &powerSaverGuid : &balancedGuid;
+    PowerSetActiveOverlaySchemeProc pPowerSetActiveOverlayScheme =
+        (PowerSetActiveOverlaySchemeProc)GetProcAddress(hPowrProf, "PowerSetActiveOverlayScheme");
 
-    DWORD result = PowerSetActiveScheme(NULL, targetScheme);
+    if (!pPowerSetActiveOverlayScheme) {
+        LOG_CRITICAL("PowerManager", "PowerSetActiveOverlayScheme not available (requires Windows 10+)");
+        FreeLibrary(hPowrProf);
+        return;
+    }
+
+    DWORD result;
+    if (enable) {
+        // Enable battery saver overlay
+        result = pPowerSetActiveOverlayScheme(&GUID_BATTERY_SAVER_OVERLAY);
+    } else {
+        // Disable battery saver overlay
+        result = pPowerSetActiveOverlayScheme(NULL);
+    }
+
+    FreeLibrary(hPowrProf);
 
     if (result == ERROR_SUCCESS) {
         LOG_INFO("PowerManager",
                  QString("Battery saver %1 successfully").arg(enable ? "enabled" : "disabled"));
-        // Update status will be triggered by the notification
         updateBatterySaverStatus();
     } else {
         LOG_CRITICAL("PowerManager",
