@@ -170,7 +170,7 @@
     </message>
     <message>
         <source>ChatMix Disabled</source>
-        <translation>채팅 믹스 사용안 함</translation>
+        <translation>채팅 믹스 사용 안 함</translation>
     </message>
 </context>
 <context>
@@ -605,7 +605,7 @@ If you&apos;d like to support my work, any contribution would be greatly appreci
     </message>
     <message>
         <source>Slider wheel sensivity</source>
-        <translation type="unfinished"></translation>
+        <translation>슬라이더 휠 감도</translation>
     </message>
     <message>
         <source>Normal</source>
