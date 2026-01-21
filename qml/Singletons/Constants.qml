@@ -87,6 +87,14 @@ Item {
         return `qrc:/icons/tray_${theme}_${volumeLevel}${filledSuffix}.png`
     }
 
+    function getInternalBatteryIcon(batteryLevel) {
+        if (PowerBridge.batteryStatus === 2) {
+            return getBatteryChargingIconStatic(batteryLevel)
+        } else {
+            return getBatteryIcon(batteryLevel)
+        }
+    }
+
     function getBatteryIcon(batteryLevel) {
         let theme = darkMode ? "light" : "dark"
 

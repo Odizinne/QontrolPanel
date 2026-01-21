@@ -314,6 +314,14 @@
         <source>Display currently playing media from Windows known sources</source>
         <translation type="unfinished">Отображение текущего медиа из Windows приложений</translation>
     </message>
+    <message>
+        <source>Enable internal battery display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display system battery if available</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConfirmPowerActionDialog</name>
@@ -796,6 +804,10 @@ You can enable it in the General tab.</source>
     </message>
     <message>
         <source>Brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Battery</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
