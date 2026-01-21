@@ -605,7 +605,7 @@ Se vuoi supportare il mio lavoro, qualsiasi contributo sarebbe molto apprezzato!
     </message>
     <message>
         <source>Slider wheel sensivity</source>
-        <translation type="unfinished"></translation>
+        <translation>Sensibilità rotella scorrimento</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -783,7 +783,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Unknown date</source>
-        <translation>21.12.2025</translation>
+        <translation>21.01.2026</translation>
     </message>
 </context>
 <context>
