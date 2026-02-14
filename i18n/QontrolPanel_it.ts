@@ -1082,7 +1082,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>You are using the latest version</source>
-        <translation>Questa versione è aggiornata</translation>
+        <translation>La versione del programma è aggiornata.&lt;br&gt;Non sono disdponibili aggiornamentiodel programma.</translation>
     </message>
     <message>
         <source>Update started.</source>
