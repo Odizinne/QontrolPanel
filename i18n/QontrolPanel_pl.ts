@@ -166,11 +166,11 @@
     </message>
     <message>
         <source>ChatMix Enabled</source>
-        <translation></translation>
+        <translation type="unfinished">Włączono ChatMix</translation>
     </message>
     <message>
         <source>ChatMix Disabled</source>
-        <translation></translation>
+        <translation type="unfinished">Wyłączono ChatMix</translation>
     </message>
 </context>
 <context>
@@ -378,19 +378,19 @@
     </message>
     <message>
         <source>Filter by:</source>
-        <translation></translation>
+        <translation type="unfinished">Filtruj wg:</translation>
     </message>
     <message>
         <source>Auto-scroll</source>
-        <translation></translation>
+        <translation type="unfinished">Auto-przewijanie</translation>
     </message>
     <message>
         <source>Copy All</source>
-        <translation></translation>
+        <translation type="unfinished">Kopiuj wszystko</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation></translation>
+        <translation type="unfinished">Wyczyść</translation>
     </message>
 </context>
 <context>
@@ -600,10 +600,6 @@ Jeśli chcesz wesprzeć moją pracę, każda wpłata będzie bardzo mile widzian
         <translation>Pokaż potwierdzenie akcji zasilania</translation>
     </message>
     <message>
-        <source>Slider wheel sensivity</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>DDC/CI brightness update rate</source>
         <translation>Częstotliwość aktualizacji jasności DDC/CI</translation>
     </message>
@@ -767,7 +763,7 @@ Można ją włączyć w zakładce Ogólne.</translation>
     </message>
     <message>
         <source>Unknown author</source>
-        <translation></translation>
+        <translation type="unfinished">Fresta</translation>
     </message>
     <message>
         <source>Unknown date</source>
@@ -805,62 +801,62 @@ Można ją włączyć w zakładce Ogólne.</translation>
     <name>MediaOverlay</name>
     <message>
         <source>No media playing</source>
-        <translation></translation>
+        <translation type="unfinished">Brak odtwarzania multimediów</translation>
     </message>
 </context>
 <context>
     <name>MediaOverlayPane</name>
     <message>
         <source>Media Overlay</source>
-        <translation></translation>
+        <translation type="unfinished">Nakładka Multimedialna</translation>
     </message>
     <message>
         <source>Enable media overlay</source>
-        <translation></translation>
+        <translation type="unfinished">Włącz nakładkę multimedialną</translation>
     </message>
     <message>
         <source>Show a notification overlay when the currently playing song changes</source>
-        <translation></translation>
+        <translation type="unfinished">Pokaż nakładkę powiadomienia, gdy zmieni się aktualnie odtwarzany utwór</translation>
     </message>
     <message>
         <source>Overlay size</source>
-        <translation></translation>
+        <translation type="unfinished">Rozmiar nakładki</translation>
     </message>
     <message>
         <source>Choose the size of the media overlay</source>
-        <translation></translation>
+        <translation type="unfinished">Wybierz rozmiar nakładki multimedialnej</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation></translation>
+        <translation type="unfinished">Malutki</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation></translation>
+        <translation type="unfinished">Normalny</translation>
     </message>
     <message>
         <source>Big</source>
-        <translation></translation>
+        <translation type="unfinished">Duży</translation>
     </message>
     <message>
         <source>Overlay position</source>
-        <translation></translation>
+        <translation type="unfinished">Pozycja nakładki</translation>
     </message>
     <message>
         <source>Choose where the media overlay appears on screen</source>
-        <translation></translation>
+        <translation type="unfinished">Wybierz, gdzie na ekranie ma się pojawiać nakładka multimediów</translation>
     </message>
     <message>
         <source>Top Left</source>
-        <translation></translation>
+        <translation type="unfinished">Góra Lewa</translation>
     </message>
     <message>
         <source>Top Center</source>
-        <translation></translation>
+        <translation type="unfinished">Góra Środek</translation>
     </message>
     <message>
         <source>Top Right</source>
-        <translation></translation>
+        <translation type="unfinished">Góra Prawa</translation>
     </message>
     <message>
         <source>Left</source>
@@ -872,15 +868,15 @@ Można ją włączyć w zakładce Ogólne.</translation>
     </message>
     <message>
         <source>Bottom Left</source>
-        <translation></translation>
+        <translation type="unfinished">Dół Lewa</translation>
     </message>
     <message>
         <source>Bottom Center</source>
-        <translation></translation>
+        <translation type="unfinished">Dół Środek</translation>
     </message>
     <message>
         <source>Bottom Right</source>
-        <translation></translation>
+        <translation type="unfinished">Dół Prawa</translation>
     </message>
 </context>
 <context>
@@ -945,7 +941,7 @@ Można ją włączyć w zakładce Ogólne.</translation>
     </message>
     <message>
         <source>Media Overlay</source>
-        <translation></translation>
+        <translation type="unfinished">Nakładka Multimedialna</translation>
     </message>
     <message>
         <source>ChatMix</source>
