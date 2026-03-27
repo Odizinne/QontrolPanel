@@ -6,8 +6,8 @@ on:
       - main
   workflow_dispatch:
 env:
-  QT_VERSION: '6.10.1'
-  VCPKG_ROOT: 'C:/vcpkg'
+  QT_VERSION: "6.10.1"
+  VCPKG_ROOT: "C:/vcpkg"
 jobs:
   build:
     runs-on: windows-2022
@@ -35,9 +35,36 @@ jobs:
         uses: jurplel/install-qt-action@v4
         with:
           version: ${{ env.QT_VERSION }}
-          arch: 'win64_msvc2022_64'
+          arch: "win64_msvc2022_64"
           add-tools-to-path: true
           cache: true
+      - name: Rebuild vendored HeadsetControl lib
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          if (Test-Path dependencies/headsetcontrol/build-msvc-staticmd) {
+            Remove-Item -Recurse -Force dependencies/headsetcontrol/build-msvc-staticmd
+          }
+
+          cmake -S dependencies/headsetcontrol -B dependencies/headsetcontrol/build-msvc-staticmd `
+            -A x64 `
+            -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake `
+            -DVCPKG_TARGET_TRIPLET=x64-windows-static-md `
+            -DMSVC_USE_DYNAMIC_RUNTIME=ON `
+            -DBUILD_SHARED_LIBRARY=OFF
+
+          cmake --build dependencies/headsetcontrol/build-msvc-staticmd `
+            --config Release `
+            --target headsetcontrol_lib
+
+          New-Item -ItemType Directory -Force -Path dependencies/headsetcontrol/lib | Out-Null
+
+          lib /OUT:dependencies/headsetcontrol/lib/headsetcontrol.lib `
+            dependencies/headsetcontrol/build-msvc-staticmd/Release/headsetcontrol_static.lib `
+            dependencies/headsetcontrol/build-msvc-staticmd/vcpkg_installed/x64-windows-static-md/lib/hidapi.lib
+
+          Get-Item dependencies/headsetcontrol/lib/headsetcontrol.lib | Format-List FullName,Length
+
       - name: Generate and Build with CMake
         shell: pwsh
         run: |
