@@ -1,6 +1,7 @@
 #include "languagebridge.h"
 #include "languages.h"
 #include <QApplication>
+#include <QCoreApplication>
 
 LanguageBridge* LanguageBridge::m_instance = nullptr;
 
@@ -54,7 +55,7 @@ void LanguageBridge::changeApplicationLanguage(int languageIndex)
         languageCode = getLanguageCodeFromIndex(languageIndex);
     }
 
-    QString translationFile = QString("./i18n/QontrolPanel_%1.qm").arg(languageCode);
+    QString translationFile = QString(qApp->applicationDirPath() + "/i18n/QontrolPanel_%1.qm").arg(languageCode);
     if (translator->load(translationFile)) {
         qApp->installTranslator(translator);
     } else {
