@@ -4,6 +4,8 @@
 [![Github All Releases](https://img.shields.io/github/downloads/odizinne/qontrolpanel/total.svg)]()
 [![license](https://img.shields.io/github/license/odizinne/qontrolpanel)]()
 
+# I'm no longer working on this project, please have a look [here](https://github.com/Odizinne/QontrolPanel/issues/140)
+
 QontrolPanel is an enhanced audio panel for Windows.  
 It provide output and input volume / device / mute control as well as application volume mixer.  
 
