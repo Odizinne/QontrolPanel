@@ -20,7 +20,19 @@ QtObject {
             [Qt.Key_Y]: "Y", [Qt.Key_Z]: "Z",
             [Qt.Key_F1]: "F1", [Qt.Key_F2]: "F2", [Qt.Key_F3]: "F3", [Qt.Key_F4]: "F4",
             [Qt.Key_F5]: "F5", [Qt.Key_F6]: "F6", [Qt.Key_F7]: "F7", [Qt.Key_F8]: "F8",
-            [Qt.Key_F9]: "F9", [Qt.Key_F10]: "F10", [Qt.Key_F11]: "F11", [Qt.Key_F12]: "F12"
+            [Qt.Key_F9]: "F9", [Qt.Key_F10]: "F10", [Qt.Key_F11]: "F11", [Qt.Key_F12]: "F12",
+            [Qt.Key_F13]: "F13", [Qt.Key_F14]: "F14", [Qt.Key_F15]: "F15", [Qt.Key_F16]: "F16",
+            [Qt.Key_F17]: "F17", [Qt.Key_F18]: "F18", [Qt.Key_F19]: "F19", [Qt.Key_F20]: "F20",
+            [Qt.Key_F21]: "F21", [Qt.Key_F22]: "F22", [Qt.Key_F23]: "F23", [Qt.Key_F24]: "F24",
+            [Qt.Key_0]: "0", [Qt.Key_1]: "1", [Qt.Key_2]: "2", [Qt.Key_3]: "3",
+            [Qt.Key_4]: "4", [Qt.Key_5]: "5", [Qt.Key_6]: "6", [Qt.Key_7]: "7",
+            [Qt.Key_8]: "8", [Qt.Key_9]: "9",
+            [Qt.Key_Up]: "Up", [Qt.Key_Down]: "Down", [Qt.Key_Left]: "Left", [Qt.Key_Right]: "Right",
+            [Qt.Key_Space]: "Space", [Qt.Key_Return]: "Enter", [Qt.Key_Enter]: "Enter",
+            [Qt.Key_Tab]: "Tab", [Qt.Key_Escape]: "Esc", [Qt.Key_Backspace]: "Backspace",
+            [Qt.Key_Delete]: "Delete", [Qt.Key_Insert]: "Insert",
+            [Qt.Key_Home]: "Home", [Qt.Key_End]: "End",
+            [Qt.Key_PageUp]: "Page Up", [Qt.Key_PageDown]: "Page Down"
         }
         return keyMap[key] || "Unknown"
     }

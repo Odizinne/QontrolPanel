@@ -2,9 +2,20 @@
 #include "audiomanager.h"
 #include "audiomodels.h"
 #include "usersettings.h"
+#include "keyboardshortcutmanager.h"
 #include "logmanager.h"
 #include <QDebug>
 #include <QQmlContext>
+
+AudioBridge* AudioBridge::m_instance = nullptr;
+
+AudioBridge* AudioBridge::instance()
+{
+    if (!m_instance) {
+        m_instance = new AudioBridge();
+    }
+    return m_instance;
+}
 
 AudioBridge::AudioBridge(QObject *parent)
     : QObject(parent)
@@ -50,6 +61,10 @@ AudioBridge::AudioBridge(QObject *parent)
             this, &AudioBridge::onApplicationFocusChanged);
     m_windowFocusManager->startMonitoring();
 
+    // Connect per-app volume hotkeys
+    connect(KeyboardShortcutManager::instance(), &KeyboardShortcutManager::appVolumeHotkeyPressed,
+            this, &AudioBridge::onAppVolumeHotkeyPressed);
+
     loadCommAppsFromFile();
     loadAppRenamesFromFile();
     loadExecutableRenamesFromFile();
@@ -89,7 +104,7 @@ AudioBridge* AudioBridge::create(QQmlEngine *qmlEngine, QJSEngine *jsEngine)
 {
     Q_UNUSED(qmlEngine)
     Q_UNUSED(jsEngine)
-    return new AudioBridge();
+    return instance();
 }
 
 // Grouped application methods
@@ -175,6 +190,31 @@ void AudioBridge::setExecutableVolume(const QString& executableName, int volume)
             }
         }
     }
+}
+
+int AudioBridge::getExecutableVolume(const QString& executableName) const
+{
+    int totalVolume = 0;
+    int count = 0;
+    for (int i = 0; i < m_applicationModel->rowCount(); ++i) {
+        QModelIndex index = m_applicationModel->index(i, 0);
+        QString appExeName = m_applicationModel->data(index, ApplicationModel::ExecutableNameRole).toString();
+        if (appExeName == executableName) {
+            totalVolume += m_applicationModel->data(index, ApplicationModel::VolumeRole).toInt();
+            count++;
+        }
+    }
+    return count > 0 ? totalVolume / count : -1;
+}
+
+void AudioBridge::onAppVolumeHotkeyPressed(const QString &executableName, bool volumeUp, int volumeStepSize)
+{
+    int currentVolume = getExecutableVolume(executableName);
+    if (currentVolume < 0) return;
+
+    int step = (volumeStepSize > 0) ? volumeStepSize : UserSettings::instance()->sliderWheelSensivity();
+    int newVolume = volumeUp ? qMin(100, currentVolume + step) : qMax(0, currentVolume - step);
+    setExecutableVolume(executableName, newVolume);
 }
 
 void AudioBridge::setExecutableMute(const QString& executableName, bool muted)

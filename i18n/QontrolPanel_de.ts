@@ -2,6 +2,61 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="de_DE">
 <context>
+    <name>AppHotkeysPane</name>
+    <message>
+        <source>App Volume Hotkeys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Per-application volume shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Assign global hotkeys to control volume of specific applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Hinzufügen</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Entfernen</translation>
+    </message>
+    <message>
+        <source>Add App Volume Hotkey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Up Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click to set...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Down Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Abbrechen</translation>
+    </message>
+    <message>
+        <source>Step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Volume Step Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AppearancePane</name>
     <message>
         <source>Appearance &amp; Position</source>
@@ -974,6 +1029,10 @@ Sie können sie auf der Registerkarte „Allgemein“ aktivieren.</translation>
     <message>
         <source>Debug</source>
         <translation>Debug</translation>
+    </message>
+    <message>
+        <source>App Hotkeys</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

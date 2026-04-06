@@ -41,6 +41,7 @@ class AudioBridge : public QObject
 public:
     explicit AudioBridge(QObject *parent = nullptr);
     ~AudioBridge();
+    static AudioBridge* instance();
     static AudioBridge* create(QQmlEngine *qmlEngine, QJSEngine *jsEngine);
 
     // Properties
@@ -121,6 +122,8 @@ public:
     Q_INVOKABLE bool isApplicationMutedInBackground(const QString& executableName) const;
     Q_INVOKABLE void setApplicationMutedInBackground(const QString& executableName, bool muted);
 
+    Q_INVOKABLE int getExecutableVolume(const QString& executableName) const;
+
 signals:
     void outputVolumeChanged();
     void inputVolumeChanged();
@@ -143,6 +146,7 @@ signals:
     void inputDeviceCountChanged();
 
 private slots:
+    void onAppVolumeHotkeyPressed(const QString &executableName, bool volumeUp, int volumeStepSize);
     void onOutputVolumeChanged(int volume);
     void onInputVolumeChanged(int volume);
     void onOutputMuteChanged(bool muted);
@@ -261,6 +265,7 @@ private:
     void saveDeviceIconsToFile();
     QString getDeviceIconsFilePath() const;
 
+    static AudioBridge* m_instance;
     WindowFocusManager* m_windowFocusManager;
     QMap<QString, bool> m_originalMuteStates;
 

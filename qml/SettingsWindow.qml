@@ -17,16 +17,16 @@ ApplicationWindow {
 
     function showUpdatePane() {
         show()
-        if (sidebarList.currentIndex !== 9) {
-            sidebarList.currentIndex = 9
+        if (sidebarList.currentIndex !== 10) {
+            sidebarList.currentIndex = 10
             stackView.push(debugPaneComponent)
         }
     }
 
     function showHeadsetcontrolPane() {
         show()
-        if (sidebarList.currentIndex !== 6) {
-            sidebarList.currentIndex = 6
+        if (sidebarList.currentIndex !== 7) {
+            sidebarList.currentIndex = 7
             stackView.push(headsetControlPaneComponent)
         }
     }
@@ -117,6 +117,10 @@ ApplicationWindow {
                             icon: "qrc:/icons/keyboard.svg"
                         },
                         {
+                            text: qsTr("App Hotkeys"),
+                            icon: "qrc:/icons/panel_volume_66.svg"
+                        },
+                        {
                             text: qsTr("HeadsetControl"),
                             icon: "qrc:/icons/headsetcontrol.svg"
                         },
@@ -144,7 +148,7 @@ ApplicationWindow {
 
                         function onLanguageIndexChanged() {
                             Qt.callLater(function() {
-                                sidebarList.currentIndex = 8
+                                sidebarList.currentIndex = 9
                             })
                         }
                     }
@@ -173,11 +177,12 @@ ApplicationWindow {
                                     case 3: stackView.push(mediaOverlayPaneComponent); break
                                     case 4: stackView.push(commAppsPaneComponent); break
                                     case 5: stackView.push(shortcutsPaneComponent); break
-                                    case 6: stackView.push(headsetControlPaneComponent); break
-                                    case 7: stackView.push(deviceRenamingPaneComponent); break
-                                    case 8: stackView.push(languagePaneComponent); break
-                                    case 9: stackView.push(debugPaneComponent); break
-                                    case 10: stackView.push(consolePaneComponent); break
+                                    case 6: stackView.push(appHotkeysPaneComponent); break
+                                    case 7: stackView.push(headsetControlPaneComponent); break
+                                    case 8: stackView.push(deviceRenamingPaneComponent); break
+                                    case 9: stackView.push(languagePaneComponent); break
+                                    case 10: stackView.push(debugPaneComponent); break
+                                    case 11: stackView.push(consolePaneComponent); break
                                 }
                             }
                         }
@@ -256,6 +261,11 @@ ApplicationWindow {
             Component {
                 id: shortcutsPaneComponent
                 ShortcutsPane {}
+            }
+
+            Component {
+                id: appHotkeysPaneComponent
+                AppHotkeysPane {}
             }
 
             Component {
