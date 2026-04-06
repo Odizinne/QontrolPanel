@@ -10,6 +10,7 @@ set(SUPPORTED_LANGUAGES
     "zh_CN|Chinese (Simplified)|简体中文"
     "pl|Polish|polski"
     "ja|Japanese|日本語"
+    "pt_BR|Portuguese (Brazil)|português (Brasil)
 )
 
 # Function to extract language codes only
