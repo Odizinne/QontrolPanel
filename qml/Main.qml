@@ -520,7 +520,8 @@ ApplicationWindow {
                                UserSettings.enableDeviceManager,
                                UserSettings.enableApplicationMixer && AudioBridge.isReady && AudioBridge.applications.rowCount() > 0,
                                UserSettings.activateChatmix,
-                               UserSettings.allowBrightnessControl && MonitorManager.monitorDetected
+                               UserSettings.allowBrightnessControl && MonitorManager.monitorDetected,
+                               PowerBridge.batteryStatus !== 3 && UserSettings.enableInternalBattery
                            ]
         if (!visibilities[currentLayoutIndex]) return false
         for (let i = 0; i < currentLayoutIndex; i++) {
@@ -1208,6 +1209,77 @@ ApplicationWindow {
                                         delay: brightnessSlider.pressed ? 0 : 1000
                                         text: Math.round(brightnessSlider.value).toString()
                                     }
+                                }
+                            }
+                        }
+                    }
+
+                    Rectangle {
+                        id: brightnessLayoutSeparator
+                        visible: panel.shouldShowSeparator(4)
+                        Layout.preferredHeight: 1
+                        Layout.fillWidth: true
+                        color: Constants.separatorColor
+                        opacity: 0.15
+                        Layout.rightMargin: -14
+                        Layout.leftMargin: -14
+                    }
+
+                    ColumnLayout {
+                        id: batteryLayout
+                        visible: PowerBridge.batteryStatus !== 3 && UserSettings.enableInternalBattery
+                        spacing: 5
+
+                        RowLayout {
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: 40
+                            spacing: 0
+
+                            NFToolButton {
+                                Layout.preferredWidth: 40
+                                Layout.preferredHeight: 40
+                                icon.source: Constants.getInternalBatteryIcon(PowerBridge.batteryLevel)
+                                checkable: true
+                                checked: PowerBridge.batterySaverEnabled
+                                icon.width: 16
+                                icon.height: 16
+                                onClicked: PowerBridge.setBatterySaver(!PowerBridge.batterySaverEnabled)
+                            }
+
+                            ColumnLayout {
+                                spacing: 7
+                                Layout.topMargin: -8
+                                Label {
+                                    opacity: 1
+                                    text: {
+                                        const level = PowerBridge.batteryLevel;
+                                        const status = PowerBridge.batteryStatus;
+
+                                        switch(status) {
+                                            case PowerBridge.Charging:
+                                                return qsTr("Battery Charging") + " (" + level + "%)";
+                                            case PowerBridge.Discharging:
+                                                return qsTr("Battery") + " (" + level + "%)";
+                                            case PowerBridge.NotPresent:
+                                                return qsTr("No Battery Detected");
+                                            case PowerBridge.ACPower:
+                                                return qsTr("Running on AC Power");
+                                            case PowerBridge.Unknown:
+                                            default:
+                                                return qsTr("Battery Status Unknown");
+                                        }
+                                    }
+                                    Layout.leftMargin: 18
+                                    Layout.rightMargin: 25
+                                }
+
+                                CustomProgressBar {
+                                    id: batteryBar
+                                    from: 0
+                                    to: 100
+                                    loading: PowerBridge.batteryStatus === 2
+                                    value: PowerBridge.batteryLevel
+                                    Layout.fillWidth: true
                                 }
                             }
                         }

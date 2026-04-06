@@ -288,6 +288,14 @@
         <translation>Afficher les médias en cours de lecture depuis les sources reconnues de Windows</translation>
     </message>
     <message>
+        <source>Enable internal battery display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display system battery if available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Components</source>
         <translation>Composants</translation>
     </message>
@@ -794,6 +802,10 @@ Vous pouvez l&apos;activer dans l&apos;onglet Général.</translation>
     <message>
         <source>Brightness</source>
         <translation>Luminosité</translation>
+    </message>
+    <message>
+        <source>Battery</source>
+        <translation type="unfinished">Batterie</translation>
     </message>
     <message>
         <source>Update Available</source>

@@ -314,6 +314,14 @@
         <source>Display currently playing media from Windows known sources</source>
         <translation>Windows에서 알려진 소스에서 현재 재생 중인 미디어 표시</translation>
     </message>
+    <message>
+        <source>Enable internal battery display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display system battery if available</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConfirmPowerActionDialog</name>
@@ -799,6 +807,10 @@ You can enable it in the General tab.</source>
     <message>
         <source>Brightness</source>
         <translation>밝기</translation>
+    </message>
+    <message>
+        <source>Battery</source>
+        <translation type="unfinished">배터리</translation>
     </message>
 </context>
 <context>

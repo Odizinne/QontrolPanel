@@ -86,6 +86,16 @@ ColumnLayout {
                         onClicked: UserSettings.enableMediaSessionManager = checked
                     }
                 }
+
+                Card {
+                    Layout.fillWidth: true
+                    title: qsTr("Enable internal battery display")
+                    description: qsTr("Display system battery if available")
+                    additionalControl: LabeledSwitch {
+                        checked: UserSettings.enableInternalBattery
+                        onClicked: UserSettings.enableInternalBattery = checked
+                    }
+                }
             }
         }
     }
