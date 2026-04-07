@@ -13,19 +13,19 @@
     </message>
     <message>
         <source>Top</source>
-        <translation>Alto</translation>
+        <translation>In alto</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Basso</translation>
+        <translation>In basso</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Sinistra</translation>
+        <translation>A sinistra</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Destra</translation>
+        <translation>A destra</translation>
     </message>
     <message>
         <source>Taskbar offset</source>
@@ -433,7 +433,7 @@
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation>Controllo aggiornamenti</translation>
+        <translation>Controlla aggiornamenti</translation>
     </message>
     <message>
         <source>Download and Install</source>
@@ -715,7 +715,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>System</source>
-        <translation>Sistema operativo</translation>
+        <translation>Lingua sistema</translation>
     </message>
     <message>
         <source>Translation author</source>
@@ -731,7 +731,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Download the latest translation files from GitHub</source>
-        <translation>Download file traduzione aggiornati da GitHub</translation>
+        <translation>Download da GitHub file aggiornati traduzioni</translation>
     </message>
     <message>
         <source>Download</source>
@@ -771,11 +771,11 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>Unknown author</source>
-        <translation>RB</translation>
+        <translation>R.B.</translation>
     </message>
     <message>
         <source>Unknown date</source>
-        <translation>21.01.2026</translation>
+        <translation>14.02.2026</translation>
     </message>
 </context>
 <context>
@@ -1082,7 +1082,7 @@ Puoi abilitarlo nella scheda Generale.</translation>
     </message>
     <message>
         <source>You are using the latest version</source>
-        <translation>Questa versione è aggiornata</translation>
+        <translation>La versione del programma è aggiornata.&lt;br&gt;Non sono disdponibili aggiornamentiodel programma.</translation>
     </message>
     <message>
         <source>Update started.</source>
